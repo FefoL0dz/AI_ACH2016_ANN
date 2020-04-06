@@ -9,7 +9,7 @@ package com.company.utils.math;
 
  **/
 
-public class Sigmoid implements Function<Double, Double> {
+public class Tanh implements Function<Double, Double> {
     @Override
     public Double execute() {
         throw new UnsupportedOperationException();
@@ -17,7 +17,7 @@ public class Sigmoid implements Function<Double, Double> {
 
     @Override
     public Double execute(Double value) {
-        return (1/( 1 + Math.pow(Math.E, (-1 * value) )));
+        return (2/( 1 + Math.pow(Math.E, (-2 * value) ))) - 1;
     }
 
     @Override
