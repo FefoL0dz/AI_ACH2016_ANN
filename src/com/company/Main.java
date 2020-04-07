@@ -2,6 +2,7 @@ package com.company;
 
 import com.company.multiLayerPerceptron.ANN;
 import com.company.multiLayerPerceptron.di.DependencyInjector;
+import com.company.utils.Double.DoubleConverter;
 import com.company.utils.math.Sigmoid;
 
 /**
@@ -12,6 +13,7 @@ import com.company.utils.math.Sigmoid;
  *Copyright (c) 2020 FelipeLodes to Present. All rights reserved.*
 
  **/
+
 public class Main {
 
     ANN neuralNetwork;
@@ -31,8 +33,19 @@ public class Main {
         double learningRate = 0.5;
         int epochNumber = 100;
 
+        double[] xInput = {1, 2, 2};
+        double[] yExpected = {2, 3};
+
         getInstance().run(inputLayerNeuronNumber, outputLayerNeuronNumber,
-                hiddenLayerNeuronNumber, learningRate, epochNumber, functionTag);
+                hiddenLayerNeuronNumber, learningRate, epochNumber, functionTag, DoubleConverter.toDouble(xInput), DoubleConverter.toDouble(yExpected));
+    }
+
+    private void run(int inputLayerNeuronNumber, int outputLayerNeuronNumber, int hiddenLayerNeuronNumber, double learningRate, int epochNumber, String functionTag, Double[] xInput, Double[] yExpected) {
+        neuralNetwork = DependencyInjector
+                .createInstance(inputLayerNeuronNumber, outputLayerNeuronNumber, hiddenLayerNeuronNumber,
+                        learningRate, epochNumber, functionTag, xInput, yExpected).inject();
+
+        neuralNetwork.start();
     }
 
     public void run (int inputLayerNeuronNumber,
