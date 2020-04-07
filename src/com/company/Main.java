@@ -23,6 +23,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        //TODO: Create a config file to centralize settings/preferences resources
 
         String functionTag = Sigmoid.TAG;
 
@@ -36,8 +37,7 @@ public class Main {
         double[] xInput = {1, 2, 2};
         double[] yExpected = {2, 3};
 
-        getInstance().run(inputLayerNeuronNumber, outputLayerNeuronNumber,
-                hiddenLayerNeuronNumber, learningRate, epochNumber, functionTag, DoubleConverter.toDouble(xInput), DoubleConverter.toDouble(yExpected));
+        getInstance().run(inputLayerNeuronNumber, outputLayerNeuronNumber, hiddenLayerNeuronNumber, learningRate, epochNumber, functionTag, DoubleConverter.toDouble(xInput), DoubleConverter.toDouble(yExpected));
     }
 
     private void run(int inputLayerNeuronNumber, int outputLayerNeuronNumber, int hiddenLayerNeuronNumber, double learningRate, int epochNumber, String functionTag, Double[] xInput, Double[] yExpected) {

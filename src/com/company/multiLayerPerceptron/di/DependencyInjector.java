@@ -29,7 +29,12 @@ public class DependencyInjector {
                                                     double learningRate,
                                                     int epochNumber,
                                                     String functionTag) {
-        return new DependencyInjector(inputLayerNeuronNumber, outputLayerNeuronNumber, hiddenLayerNeuronNumber, learningRate, epochNumber, functionTag);
+        return new DependencyInjector(inputLayerNeuronNumber,
+                outputLayerNeuronNumber,
+                hiddenLayerNeuronNumber,
+                learningRate,
+                epochNumber,
+                functionTag);
     }
 
     public static DependencyInjector createInstance(int inputLayerNeuronNumber,
@@ -40,10 +45,22 @@ public class DependencyInjector {
                                                     String functionTag,
                                                     Double[] inputXVector,
                                                     Double[] expectedYvector) {
-        return new DependencyInjector(inputLayerNeuronNumber, outputLayerNeuronNumber, hiddenLayerNeuronNumber, learningRate, epochMaxNumber, functionTag, inputXVector, expectedYvector);
+        return new DependencyInjector(inputLayerNeuronNumber,
+                outputLayerNeuronNumber,
+                hiddenLayerNeuronNumber,
+                learningRate,
+                epochMaxNumber,
+                functionTag,
+                inputXVector,
+                expectedYvector);
     }
 
-    public DependencyInjector(int inputLayerNeuronNumber, int outputLayerNeuronNumber, int hiddenLayerNeuronNumber, double learningRate, int epochNumber, String functionTag) {
+    public DependencyInjector(int inputLayerNeuronNumber,
+                              int outputLayerNeuronNumber,
+                              int hiddenLayerNeuronNumber,
+                              double learningRate,
+                              int epochNumber,
+                              String functionTag) {
         Double[][] hiddenWeightMatrix = new Double[inputLayerNeuronNumber + 1][hiddenLayerNeuronNumber];
         Double[][] outputWeightMatrix = new Double[hiddenLayerNeuronNumber + 1][outputLayerNeuronNumber];
 
@@ -72,7 +89,14 @@ public class DependencyInjector {
                 outputWeightMatrix);
     }
 
-    public DependencyInjector(int inputLayerNeuronNumber, int outputLayerNeuronNumber, int hiddenLayerNeuronNumber, double learningRate, int epochNumber, String functionTag, Double[] inputXVector, Double[] expectedYvector) {
+    public DependencyInjector(int inputLayerNeuronNumber,
+                              int outputLayerNeuronNumber,
+                              int hiddenLayerNeuronNumber,
+                              double learningRate,
+                              int epochNumber,
+                              String functionTag,
+                              Double[] inputXVector,
+                              Double[] expectedYvector) {
         Double[][] hiddenWeightMatrix = new Double[inputLayerNeuronNumber + 1][hiddenLayerNeuronNumber];
         Double[][] outputWeightMatrix = new Double[hiddenLayerNeuronNumber + 1][outputLayerNeuronNumber];
 
@@ -92,7 +116,16 @@ public class DependencyInjector {
                 outputWeightMatrix);
     }
 
-    public DependencyInjector(int inputLayerNeuronNumber, int outputLayerNeuronNumber, int hiddenLayerNeuronNumber, double learningRate, int epochNumber, String functionTag, Double[] inputXVector, Double[] expectedYvector, Double[][] hiddenWeightMatrix, Double[][] outputWeightMatrix) {
+    public DependencyInjector(int inputLayerNeuronNumber,
+                              int outputLayerNeuronNumber,
+                              int hiddenLayerNeuronNumber,
+                              double learningRate,
+                              int epochNumber,
+                              String functionTag,
+                              Double[] inputXVector,
+                              Double[] expectedYvector,
+                              Double[][] hiddenWeightMatrix,
+                              Double[][] outputWeightMatrix) {
 
         constructBuilder(inputLayerNeuronNumber,
                 outputLayerNeuronNumber,
@@ -106,7 +139,17 @@ public class DependencyInjector {
                 outputWeightMatrix);
     }
 
-    private void constructBuilder(int inputLayerNeuronNumber, int outputLayerNeuronNumber, int hiddenLayerNeuronNumber, double learningRate, int epochNumber, Function<Double, Double> injectedFunction, Double[] inputXVector, Double[] expectedYvector, Double[][] hiddenWeightMatrix, Double[][] outputWeightMatrix) {
+    private void constructBuilder(int inputLayerNeuronNumber,
+                                  int outputLayerNeuronNumber,
+                                  int hiddenLayerNeuronNumber,
+                                  double learningRate,
+                                  int epochNumber,
+                                  Function<Double,
+                                          Double> injectedFunction,
+                                  Double[] inputXVector,
+                                  Double[] expectedYvector,
+                                  Double[][] hiddenWeightMatrix,
+                                  Double[][] outputWeightMatrix) {
         builder = new Builder()
                 .withInputLayerNeuronNumber(inputLayerNeuronNumber)
                 .withOutputLayerNeuronNumber(outputLayerNeuronNumber)
