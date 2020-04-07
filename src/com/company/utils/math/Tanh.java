@@ -10,6 +10,9 @@ package com.company.utils.math;
  **/
 
 public class Tanh implements Function<Double, Double> {
+
+    public static final String TAG = "Tanh";
+
     @Override
     public Double execute() {
         throw new UnsupportedOperationException();

@@ -27,14 +27,13 @@ public class ANN {
                int outputLayerNeuronNumber,
                int hiddenLayerNeuronNumber,
                double learningRate,
-               double errorRate,
                int epochNumber,
                Function<Double, Double> activationFunction) {
         this.inputLayerNeuronNumber = inputLayerNeuronNumber;
         this.outputLayerNeuronNumber = outputLayerNeuronNumber;
         this.hiddenLayerNeuronNumber = hiddenLayerNeuronNumber;
         this.learningRate = learningRate;
-        this.errorRate = errorRate;
+        this.errorRate = Double.POSITIVE_INFINITY;
         this.epochNumber = epochNumber;
         this.activationFunction = activationFunction;
     }
