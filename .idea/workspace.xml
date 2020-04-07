@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4446b4f-cf2e-41c2-b099-dca7f48763dd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/utils/generator/MatrixGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/utils/generator/VectorGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/di/DependencyInjector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/di/DependencyInjector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/utils/string/StringUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/utils/string/StringUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/utils/generator/RandomGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/utils/generator/RandomGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,10 +61,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="513" y="116" width="374" height="560" key="#com.intellij.ide.util.MemberChooser" timestamp="1586219470501">
+    <state x="513" y="116" width="374" height="560" key="#com.intellij.ide.util.MemberChooser" timestamp="1586232304941">
       <screen x="45" y="27" width="1321" height="741" />
     </state>
-    <state x="513" y="116" width="374" height="560" key="#com.intellij.ide.util.MemberChooser/45.27.1321.741@45.27.1321.741" timestamp="1586219470501" />
+    <state x="513" y="116" width="374" height="560" key="#com.intellij.ide.util.MemberChooser/45.27.1321.741@45.27.1321.741" timestamp="1586232304941" />
     <state x="488" y="155" width="424" height="482" key="FileChooserDialogImpl" timestamp="1586226792760">
       <screen x="45" y="27" width="1321" height="741" />
     </state>
