@@ -19,7 +19,10 @@ public class ANN {
 
     private double learningRate;
     private double errorRate;
-    private int epochNumber;
+    private int epochMaxNumber;
+
+    private int currentEpoch;
+    //private double meanError;
 
     Function<Double, Double> activationFunction;
 
@@ -27,14 +30,19 @@ public class ANN {
                int outputLayerNeuronNumber,
                int hiddenLayerNeuronNumber,
                double learningRate,
-               int epochNumber,
+               int epochMaxNumber,
                Function<Double, Double> activationFunction) {
         this.inputLayerNeuronNumber = inputLayerNeuronNumber;
         this.outputLayerNeuronNumber = outputLayerNeuronNumber;
         this.hiddenLayerNeuronNumber = hiddenLayerNeuronNumber;
         this.learningRate = learningRate;
         this.errorRate = Double.POSITIVE_INFINITY;
-        this.epochNumber = epochNumber;
+        this.epochMaxNumber = epochMaxNumber;
         this.activationFunction = activationFunction;
+        this.currentEpoch = 0;
+    }
+
+    public void start() {
+
     }
 }

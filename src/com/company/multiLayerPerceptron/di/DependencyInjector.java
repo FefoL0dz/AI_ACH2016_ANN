@@ -1,4 +1,4 @@
-package com.company.di;
+package com.company.multiLayerPerceptron.di;
 
 import com.company.multiLayerPerceptron.ANN;
 import com.company.utils.math.Function;
@@ -29,7 +29,7 @@ public class DependencyInjector {
     public static DependencyInjector createInstance(int inputLayerNeuronNumber,
                                                     int outputLayerNeuronNumber,
                                                     int hiddenLayerNeuronNumber,
-                                                    int learningRate,
+                                                    double learningRate,
                                                     int epochNumber,
                                                     String functionTag) {
         return new DependencyInjector(inputLayerNeuronNumber, outputLayerNeuronNumber, hiddenLayerNeuronNumber, learningRate, epochNumber, functionTag);
