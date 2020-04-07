@@ -1,7 +1,5 @@
 package com.company.multiLayerPerceptron;
 
-import com.company.utils.generator.MatrixGenerator;
-import com.company.utils.generator.VectorGenerator;
 import com.company.utils.math.Function;
 
 /**
