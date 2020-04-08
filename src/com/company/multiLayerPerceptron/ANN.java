@@ -30,7 +30,8 @@ public class ANN {
     IFunction<Double, Double> activationFunction;
 
     private Double inputXVector[];
-    private Double expectedYvector[];
+    private final Double expectedYvector[];
+    private Double obtainedYVector[];
     private Double hiddenZVector[];
 
     private final double bias = 1;
@@ -60,6 +61,8 @@ public class ANN {
         this.outputWeightMatrix = outputWeightMatrix;
 
         this.hiddenZVector = DoubleConverter.toDouble(new double[hiddenLayerNeuronNumber]);
+        this.obtainedYVector = DoubleConverter.toDouble(new double[outputLayerNeuronNumber]);
+
         setBias();
     }
 
@@ -87,11 +90,35 @@ public class ANN {
     private void backPropagation() {
     }
 
+    //We use this offset, starting with i = 1, not considering hidden layer bias. It do not must to be updated.
     private void feedForward() {
+        for (int i = 1; i < hiddenLayerNeuronNumber; i++) {
+            hiddenZVector[i] = activationFunction.execute(sumInputLayer(i));
+        }
+
+        for (int i = 0; i < outputLayerNeuronNumber; i++) {
+            obtainedYVector[i] = activationFunction.execute(sumHiddenLayer(i));
+        }
+    }
+
+    private Double sumHiddenLayer(int index) {
+        double result = 0;
+        for (int i = 0; i < hiddenLayerNeuronNumber; i++) {
+            result += (hiddenZVector[i] * outputWeightMatrix[i][index]);
+        }
+        return result;
+    }
+
+    private double sumInputLayer(int index) {
+        double result = 0;
+        for (int i = 0; i < inputLayerNeuronNumber; i++) {
+            result += (inputXVector[i] * hiddenWeightMatrix[i][index]);
+        }
+        return result;
     }
 
     private boolean isTerminated() {
-        return (currentEpoch < epochMaxNumber) && isStagnant();
+        return (currentEpoch >= epochMaxNumber) || isStagnant();
     }
 
     private boolean isStagnant() {
