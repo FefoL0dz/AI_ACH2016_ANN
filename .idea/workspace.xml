@@ -6,7 +6,12 @@
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/di/DependencyInjector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/di/DependencyInjector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/utils/Double/DoubleConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/utils/Double/DoubleConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/utils/generator/MatrixGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/generator/MatrixGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/utils/generator/RandomGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/generator/IRandomGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/utils/generator/VectorGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/generator/VectorGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/utils/math/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/math/IFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/utils/math/Sigmoid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/math/Sigmoid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/utils/math/Tanh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/math/Tanh.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +76,10 @@
       <screen x="45" y="27" width="1321" height="741" />
     </state>
     <state x="513" y="116" width="374" height="560" key="#com.intellij.ide.util.MemberChooser/45.27.1321.741@45.27.1321.741" timestamp="1586235958428" />
+    <state x="413" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1586304605067">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1586304605067" />
     <state x="488" y="155" width="424" height="482" key="FileChooserDialogImpl" timestamp="1586226792760">
       <screen x="45" y="27" width="1321" height="741" />
     </state>

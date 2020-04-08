@@ -1,4 +1,4 @@
-package com.company.utils.math;
+package com.company.math;
 
 /**
  Created by: Felipe Lodes in 07/04/2020.
@@ -9,7 +9,7 @@ package com.company.utils.math;
 
  **/
 
-public class Tanh implements Function<Double, Double> {
+public class Tanh implements IFunction<Double, Double> {
 
     public static final String TAG = "Tanh";
 

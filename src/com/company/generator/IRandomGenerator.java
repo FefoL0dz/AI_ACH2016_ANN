@@ -1,4 +1,4 @@
-package com.company.utils.generator;
+package com.company.generator;
 
 import java.util.Random;
 
@@ -11,7 +11,7 @@ import java.util.Random;
 
  **/
 
-public interface RandomGenerator<E, T> {
+public interface IRandomGenerator<E, T> {
 
     E generate(T value);
 

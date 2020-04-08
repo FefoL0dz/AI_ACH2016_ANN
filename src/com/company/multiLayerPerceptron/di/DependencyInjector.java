@@ -1,11 +1,11 @@
 package com.company.multiLayerPerceptron.di;
 
 import com.company.multiLayerPerceptron.ANN;
-import com.company.utils.generator.MatrixGenerator;
-import com.company.utils.generator.VectorGenerator;
-import com.company.utils.math.Function;
-import com.company.utils.math.Sigmoid;
-import com.company.utils.math.Tanh;
+import com.company.generator.MatrixGenerator;
+import com.company.generator.VectorGenerator;
+import com.company.math.IFunction;
+import com.company.math.Sigmoid;
+import com.company.math.Tanh;
 import com.company.utils.string.StringUtils;
 
 /**
@@ -144,8 +144,8 @@ public class DependencyInjector {
                                   int hiddenLayerNeuronNumber,
                                   double learningRate,
                                   int epochNumber,
-                                  Function<Double,
-                                          Double> injectedFunction,
+                                  IFunction<Double,
+                                                                            Double> injectedFunction,
                                   Double[] inputXVector,
                                   Double[] expectedYvector,
                                   Double[][] hiddenWeightMatrix,
@@ -167,7 +167,7 @@ public class DependencyInjector {
         return builder.build();
     }
 
-    private Function<Double, Double> injectFunction(String functionTag) {
+    private IFunction<Double, Double> injectFunction(String functionTag) {
         if (StringUtils.isNullOrEmpty(functionTag)) {
             return new Sigmoid();
         }
@@ -194,7 +194,7 @@ public class DependencyInjector {
         private Double[][] hiddenWeightMatrix;
         private Double[][] outputWeightMatrix;
 
-        Function<Double, Double> activationFunction;
+        IFunction<Double, Double> activationFunction;
 
         private Double inputXVector[];
         private Double expectedYvector[];
@@ -224,7 +224,7 @@ public class DependencyInjector {
             return this;
         }
 
-        public Builder withActivationFunction(Function<Double, Double> func) {
+        public Builder withActivationFunction(IFunction<Double, Double> func) {
             this.activationFunction = func;
             return this;
         }

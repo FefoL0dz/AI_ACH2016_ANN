@@ -1,6 +1,6 @@
 package com.company.multiLayerPerceptron;
 
-import com.company.utils.math.Function;
+import com.company.math.IFunction;
 
 /**
  Created by: Felipe Lodes in 07/04/2020.
@@ -26,7 +26,7 @@ public class ANN {
     private Double[][] hiddenWeightMatrix;
     private Double[][] outputWeightMatrix;
 
-    Function<Double, Double> activationFunction;
+    IFunction<Double, Double> activationFunction;
 
     private Double inputXVector[];
     private Double expectedYvector[];
@@ -40,7 +40,7 @@ public class ANN {
                int hiddenLayerNeuronNumber,
                double learningRate,
                int epochMaxNumber,
-               Function<Double, Double> activationFunction,
+               IFunction<Double, Double> activationFunction,
                Double[] inputXVector,
                Double[] expectedYvector,
                Double[][] hiddenWeightMatrix,

@@ -1,4 +1,4 @@
-package com.company.utils.generator;
+package com.company.generator;
 
 /**
  Created by: Felipe Lodes in 07/04/2020.
@@ -9,7 +9,7 @@ package com.company.utils.generator;
 
  **/
 
-public class VectorGenerator implements RandomGenerator<Double[], Double[]> {
+public class VectorGenerator implements IRandomGenerator<Double[], Double[]> {
 
     @Override
     public Double[] generate(Double[] vector) {

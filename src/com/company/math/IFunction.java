@@ -1,4 +1,4 @@
-package com.company.utils.math;
+package com.company.math;
 
 /**
  Created by: Felipe Lodes in 07/04/2020.
@@ -9,7 +9,7 @@ package com.company.utils.math;
 
  **/
 
-public interface Function<E, T> {
+public interface IFunction<E, T> {
     E execute();
     E execute(T value);
     E execute(T value1, T value);
