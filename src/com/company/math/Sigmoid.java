@@ -27,4 +27,10 @@ public class Sigmoid implements IFunction<Double, Double> {
     public Double execute(Double value1, Double value) {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public Double derivative(Double value) {
+        Double result = execute(value);
+        return result * (1 - result);
+    }
 }

@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4446b4f-cf2e-41c2-b099-dca7f48763dd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/multiLayerPerceptron/ANN.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ACH2016/com/company/multiLayerPerceptron/ANN.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/utils/exception/NotYetImplementedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/math/IFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/math/IFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/math/Sigmoid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/math/Sigmoid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/math/Tanh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/math/Tanh.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,9 +80,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="513" y="116" width="374" height="560" key="#com.intellij.ide.util.MemberChooser" timestamp="1586235958428">
-      <screen x="45" y="27" width="1321" height="741" />
+    <state x="484" y="87" width="374" height="560" key="#com.intellij.ide.util.MemberChooser" timestamp="1586310924188">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="484" y="87" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1586310924188" />
     <state x="513" y="116" width="374" height="560" key="#com.intellij.ide.util.MemberChooser/45.27.1321.741@45.27.1321.741" timestamp="1586235958428" />
     <state x="413" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1586304605067">
       <screen x="0" y="0" width="1366" height="728" />

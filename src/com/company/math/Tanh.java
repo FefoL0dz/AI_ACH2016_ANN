@@ -1,5 +1,7 @@
 package com.company.math;
 
+import com.company.utils.exception.NotYetImplementedException;
+
 /**
  Created by: Felipe Lodes in 07/04/2020.
  Discipline: ACH2016 - "Inteligência Artificial"
@@ -26,5 +28,10 @@ public class Tanh implements IFunction<Double, Double> {
     @Override
     public Double execute(Double value1, Double value) {
         throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Double derivative(Double value) {
+        throw new NotYetImplementedException();
     }
 }

@@ -13,4 +13,5 @@ public interface IFunction<E, T> {
     E execute();
     E execute(T value);
     E execute(T value1, T value);
+    E derivative(T value);
 }
