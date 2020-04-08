@@ -1,4 +1,4 @@
-package com.company.math;
+package com.company.tools.math;
 
 import com.company.utils.exception.NotYetImplementedException;
 

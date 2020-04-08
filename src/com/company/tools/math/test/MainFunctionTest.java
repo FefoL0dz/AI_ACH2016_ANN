@@ -1,7 +1,7 @@
-package com.company.math.test;
+package com.company.tools.math.test;
 
-import com.company.math.IFunction;
-import com.company.math.Sigmoid;
+import com.company.tools.math.IFunction;
+import com.company.tools.math.Sigmoid;
 
 /**
  Created by: Felipe Lodes in 07/04/2020.

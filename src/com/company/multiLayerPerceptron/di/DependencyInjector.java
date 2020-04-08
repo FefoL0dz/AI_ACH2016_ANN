@@ -1,11 +1,11 @@
 package com.company.multiLayerPerceptron.di;
 
 import com.company.multiLayerPerceptron.ANN;
-import com.company.generator.MatrixGenerator;
-import com.company.generator.VectorGenerator;
-import com.company.math.IFunction;
-import com.company.math.Sigmoid;
-import com.company.math.Tanh;
+import com.company.tools.generator.MatrixGenerator;
+import com.company.tools.generator.VectorGenerator;
+import com.company.tools.math.IFunction;
+import com.company.tools.math.Sigmoid;
+import com.company.tools.math.Tanh;
 import com.company.utils.string.StringUtils;
 
 /**
@@ -251,8 +251,8 @@ public class DependencyInjector {
 
         public ANN build() {
             return new ANN(inputLayerNeuronNumber,
-                    hiddenLayerNeuronNumber,
                     outputLayerNeuronNumber,
+                    hiddenLayerNeuronNumber,
                     learningRate,
                     epochMaxNumber,
                     activationFunction,

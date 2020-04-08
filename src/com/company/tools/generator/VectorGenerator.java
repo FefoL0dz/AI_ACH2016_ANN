@@ -1,4 +1,4 @@
-package com.company.generator;
+package com.company.tools.generator;
 
 /**
  Created by: Felipe Lodes in 07/04/2020.

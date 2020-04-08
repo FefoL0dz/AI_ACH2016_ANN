@@ -1,4 +1,4 @@
-package com.company.math;
+package com.company.tools.math;
 
 /**
  Created by: Felipe Lodes in 07/04/2020.

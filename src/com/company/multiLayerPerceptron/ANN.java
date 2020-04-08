@@ -1,6 +1,6 @@
 package com.company.multiLayerPerceptron;
 
-import com.company.math.IFunction;
+import com.company.tools.math.IFunction;
 import com.company.utils.doubleConverter.DoubleConverter;
 
 /**
@@ -27,13 +27,18 @@ public class ANN {
     private Double[][] hiddenWeightMatrix;
     private Double[][] outputWeightMatrix;
 
+    private Double[][] outputCorrectionTerm;
+    private Double[][] hiddenCorrectionTerm;
+
     IFunction<Double, Double> activationFunction;
 
     private Double inputXVector[];
     private final Double expectedYvector[];
     private Double obtainedYVector[];
     private Double hiddenZVector[];
-    private Double errorInformation[];
+
+    private Double hiddenErrorInformation[];
+    private Double outputErrorInformation[];
 
     private final double bias = 1;
 
@@ -47,9 +52,9 @@ public class ANN {
                Double[] expectedYvector,
                Double[][] hiddenWeightMatrix,
                Double[][] outputWeightMatrix) {
-        this.inputLayerNeuronNumber = inputLayerNeuronNumber;
+        this.inputLayerNeuronNumber = inputLayerNeuronNumber + 1;
         this.outputLayerNeuronNumber = outputLayerNeuronNumber;
-        this.hiddenLayerNeuronNumber = hiddenLayerNeuronNumber;
+        this.hiddenLayerNeuronNumber = hiddenLayerNeuronNumber + 1;
         this.learningRate = learningRate;
         this.errorRate = Double.POSITIVE_INFINITY;
         this.epochMaxNumber = epochMaxNumber;
@@ -63,7 +68,9 @@ public class ANN {
 
         this.hiddenZVector = DoubleConverter.toDouble(new double[hiddenLayerNeuronNumber]);
         this.obtainedYVector = DoubleConverter.toDouble(new double[outputLayerNeuronNumber]);
-        this.errorInformation = DoubleConverter.toDouble(new double[outputLayerNeuronNumber]);
+
+        this.outputErrorInformation = DoubleConverter.toDouble(new double[outputLayerNeuronNumber]);
+        this.hiddenErrorInformation = DoubleConverter.toDouble(new double[hiddenLayerNeuronNumber]);
 
         setBias();
     }
@@ -95,7 +102,7 @@ public class ANN {
 
     private void calculateErrorInformation() {
         for (int i = 0; i < outputLayerNeuronNumber; i++) {
-            errorInformation[i] = (expectedYvector[i] - obtainedYVector[i]) * activationFunction.derivative(sumHiddenLayer(i));
+            outputErrorInformation[i] = (expectedYvector[i] - obtainedYVector[i]) * activationFunction.derivative(sumHiddenLayer(i));
         }
     }
 
