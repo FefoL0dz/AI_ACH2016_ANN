@@ -1,11 +1,11 @@
 package com.company.multiLayerPerceptron.di;
 
 import com.company.multiLayerPerceptron.ANN;
-import com.company.utils.generator.MatrixGenerator;
-import com.company.utils.generator.VectorGenerator;
-import com.company.utils.math.Function;
-import com.company.utils.math.Sigmoid;
-import com.company.utils.math.Tanh;
+import com.company.tools.generator.MatrixGenerator;
+import com.company.tools.generator.VectorGenerator;
+import com.company.tools.math.IFunction;
+import com.company.tools.math.Sigmoid;
+import com.company.tools.math.Tanh;
 import com.company.utils.string.StringUtils;
 
 /**
@@ -61,14 +61,14 @@ public class DependencyInjector {
                               double learningRate,
                               int epochNumber,
                               String functionTag) {
-        Double[][] hiddenWeightMatrix = new Double[inputLayerNeuronNumber + 1][hiddenLayerNeuronNumber];
-        Double[][] outputWeightMatrix = new Double[hiddenLayerNeuronNumber + 1][outputLayerNeuronNumber];
+        Double[][] hiddenWeightMatrix = new Double[inputLayerNeuronNumber][hiddenLayerNeuronNumber];
+        Double[][] outputWeightMatrix = new Double[hiddenLayerNeuronNumber][outputLayerNeuronNumber];
 
         MatrixGenerator generator = new MatrixGenerator();
         hiddenWeightMatrix = generator.generate(hiddenWeightMatrix);
         outputWeightMatrix = generator.generate(outputWeightMatrix);
 
-        Double[] inputXVector = new Double[inputLayerNeuronNumber + 1];
+        Double[] inputXVector = new Double[inputLayerNeuronNumber];
         Double[] expectedYvector = new Double[outputLayerNeuronNumber];
 
         VectorGenerator vectorGenerator = new VectorGenerator();
@@ -97,8 +97,8 @@ public class DependencyInjector {
                               String functionTag,
                               Double[] inputXVector,
                               Double[] expectedYvector) {
-        Double[][] hiddenWeightMatrix = new Double[inputLayerNeuronNumber + 1][hiddenLayerNeuronNumber];
-        Double[][] outputWeightMatrix = new Double[hiddenLayerNeuronNumber + 1][outputLayerNeuronNumber];
+        Double[][] hiddenWeightMatrix = new Double[inputLayerNeuronNumber][hiddenLayerNeuronNumber];
+        Double[][] outputWeightMatrix = new Double[hiddenLayerNeuronNumber][outputLayerNeuronNumber];
 
         MatrixGenerator generator = new MatrixGenerator();
         hiddenWeightMatrix = generator.generate(hiddenWeightMatrix);
@@ -144,8 +144,7 @@ public class DependencyInjector {
                                   int hiddenLayerNeuronNumber,
                                   double learningRate,
                                   int epochNumber,
-                                  Function<Double,
-                                          Double> injectedFunction,
+                                  IFunction<Double, Double> injectedFunction,
                                   Double[] inputXVector,
                                   Double[] expectedYvector,
                                   Double[][] hiddenWeightMatrix,
@@ -167,7 +166,7 @@ public class DependencyInjector {
         return builder.build();
     }
 
-    private Function<Double, Double> injectFunction(String functionTag) {
+    private IFunction<Double, Double> injectFunction(String functionTag) {
         if (StringUtils.isNullOrEmpty(functionTag)) {
             return new Sigmoid();
         }
@@ -194,7 +193,7 @@ public class DependencyInjector {
         private Double[][] hiddenWeightMatrix;
         private Double[][] outputWeightMatrix;
 
-        Function<Double, Double> activationFunction;
+        IFunction<Double, Double> activationFunction;
 
         private Double inputXVector[];
         private Double expectedYvector[];
@@ -224,7 +223,7 @@ public class DependencyInjector {
             return this;
         }
 
-        public Builder withActivationFunction(Function<Double, Double> func) {
+        public Builder withActivationFunction(IFunction<Double, Double> func) {
             this.activationFunction = func;
             return this;
         }
@@ -251,8 +250,8 @@ public class DependencyInjector {
 
         public ANN build() {
             return new ANN(inputLayerNeuronNumber,
-                    hiddenLayerNeuronNumber,
                     outputLayerNeuronNumber,
+                    hiddenLayerNeuronNumber,
                     learningRate,
                     epochMaxNumber,
                     activationFunction,

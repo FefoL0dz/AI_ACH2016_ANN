@@ -2,8 +2,8 @@ package com.company;
 
 import com.company.multiLayerPerceptron.ANN;
 import com.company.multiLayerPerceptron.di.DependencyInjector;
-import com.company.utils.Double.DoubleConverter;
-import com.company.utils.math.Sigmoid;
+import com.company.utils.doubleConverter.DoubleConverter;
+import com.company.tools.math.Sigmoid;
 
 /**
   Created by: Felipe Lodes in 07/04/2020.
@@ -27,15 +27,15 @@ public class Main {
 
         String functionTag = Sigmoid.TAG;
 
-        int inputLayerNeuronNumber = 2;
+        int inputLayerNeuronNumber = 3;
         int outputLayerNeuronNumber = 2;
-        int hiddenLayerNeuronNumber = 3;
+        int hiddenLayerNeuronNumber = 4;
 
         double learningRate = 0.5;
         int epochNumber = 100;
 
-        double[] xInput = {1, 2, 2};
-        double[] yExpected = {2, 3};
+        double[] xInput = {1, 1, 1}; //TODO: Solve this problem - needs to pass bias as parameter
+        double[] yExpected = {1, 0};
 
         getInstance().run(inputLayerNeuronNumber, outputLayerNeuronNumber, hiddenLayerNeuronNumber, learningRate, epochNumber, functionTag, DoubleConverter.toDouble(xInput), DoubleConverter.toDouble(yExpected));
     }
