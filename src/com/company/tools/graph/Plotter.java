@@ -1,4 +1,4 @@
-package com.company.utils.graph;
+package com.company.tools.graph;
 
 import com.company.utils.exception.NotYetImplementedException;
 

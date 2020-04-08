@@ -1,4 +1,4 @@
-package com.company.utils.IO.log;
+package com.company.tools.IO.log;
 
 import com.company.multiLayerPerceptron.ANN;
 import com.company.utils.exception.NotYetImplementedException;

@@ -1,4 +1,4 @@
-package com.company.utils.IO.output;
+package com.company.tools.IO.output;
 
 /**
  Created by: Felipe Lodes in 07/04/2020.

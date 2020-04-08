@@ -1,4 +1,4 @@
-package com.company.utils.IO.input;
+package com.company.tools.IO.input;
 
 /**
  Created by: Felipe Lodes in 07/04/2020.
