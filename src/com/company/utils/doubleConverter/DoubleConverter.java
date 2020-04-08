@@ -1,4 +1,4 @@
-package com.company.utils.Double;
+package com.company.utils.doubleConverter;
 
 /**
  Created by: Felipe Lodes in 07/04/2020.

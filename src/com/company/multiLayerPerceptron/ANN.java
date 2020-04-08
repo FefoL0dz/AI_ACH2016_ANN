@@ -1,6 +1,7 @@
 package com.company.multiLayerPerceptron;
 
 import com.company.math.IFunction;
+import com.company.utils.doubleConverter.DoubleConverter;
 
 /**
  Created by: Felipe Lodes in 07/04/2020.
@@ -30,10 +31,9 @@ public class ANN {
 
     private Double inputXVector[];
     private Double expectedYvector[];
+    private Double hiddenZVector[];
 
-    public void start() {
-
-    }
+    private final double bias = 1;
 
     public ANN(int inputLayerNeuronNumber,
                int outputLayerNeuronNumber,
@@ -58,9 +58,44 @@ public class ANN {
 
         this.hiddenWeightMatrix = hiddenWeightMatrix;
         this.outputWeightMatrix = outputWeightMatrix;
+
+        this.hiddenZVector = DoubleConverter.toDouble(new double[hiddenLayerNeuronNumber]);
+        setBias();
+    }
+
+    private void setBias() {
+        this.inputXVector[0] = bias;
+        this.hiddenZVector[0] = bias;
     }
 
     public void updateCurrentEpoch() {
         this.currentEpoch++;
+    }
+
+    public void start() {
+        while (!isTerminated()) {
+            feedForward();
+            backPropagation();
+            updateWeightMatrixes();
+            updateCurrentEpoch();
+        }
+    }
+
+    private void updateWeightMatrixes() {
+    }
+
+    private void backPropagation() {
+    }
+
+    private void feedForward() {
+    }
+
+    private boolean isTerminated() {
+        return (currentEpoch < epochMaxNumber) && isStagnant();
+    }
+
+    private boolean isStagnant() {
+        //TODO: Must t be implemented
+        return false;
     }
 }

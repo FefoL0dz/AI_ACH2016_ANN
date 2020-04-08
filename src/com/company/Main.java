@@ -2,7 +2,7 @@ package com.company;
 
 import com.company.multiLayerPerceptron.ANN;
 import com.company.multiLayerPerceptron.di.DependencyInjector;
-import com.company.utils.Double.DoubleConverter;
+import com.company.utils.doubleConverter.DoubleConverter;
 import com.company.math.Sigmoid;
 
 /**

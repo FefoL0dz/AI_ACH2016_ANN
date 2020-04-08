@@ -2,16 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4446b4f-cf2e-41c2-b099-dca7f48763dd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/company/math/test/MainFunctionTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ACH2016/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/multiLayerPerceptron/ANN.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ACH2016/com/company/multiLayerPerceptron/ANN.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/multiLayerPerceptron/di/DependencyInjector$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ACH2016/com/company/multiLayerPerceptron/di/DependencyInjector$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/multiLayerPerceptron/di/DependencyInjector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ACH2016/com/company/multiLayerPerceptron/di/DependencyInjector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/utils/Double/DoubleConverter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/utils/generator/MatrixGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/utils/generator/RandomGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/utils/generator/VectorGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/utils/math/Function.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/utils/math/Sigmoid.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/utils/math/Tanh.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/di/DependencyInjector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/di/DependencyInjector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/utils/generator/MatrixGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/generator/MatrixGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/utils/generator/RandomGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/generator/IRandomGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/utils/generator/VectorGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/generator/VectorGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/utils/math/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/math/IFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/utils/math/Sigmoid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/math/Sigmoid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/utils/math/Tanh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/math/Tanh.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/utils/Double/DoubleConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/utils/doubleConverter/DoubleConverter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +47,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.company.Main" />
       <module name="ACH2016" />
@@ -52,8 +58,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainFunctionTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.math.test.MainFunctionTest" />
+      <module name="ACH2016" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.company.math.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MainFunctionTest" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
