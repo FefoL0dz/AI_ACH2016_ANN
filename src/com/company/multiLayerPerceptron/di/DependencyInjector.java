@@ -61,14 +61,14 @@ public class DependencyInjector {
                               double learningRate,
                               int epochNumber,
                               String functionTag) {
-        Double[][] hiddenWeightMatrix = new Double[inputLayerNeuronNumber + 1][hiddenLayerNeuronNumber];
-        Double[][] outputWeightMatrix = new Double[hiddenLayerNeuronNumber + 1][outputLayerNeuronNumber];
+        Double[][] hiddenWeightMatrix = new Double[inputLayerNeuronNumber][hiddenLayerNeuronNumber];
+        Double[][] outputWeightMatrix = new Double[hiddenLayerNeuronNumber][outputLayerNeuronNumber];
 
         MatrixGenerator generator = new MatrixGenerator();
         hiddenWeightMatrix = generator.generate(hiddenWeightMatrix);
         outputWeightMatrix = generator.generate(outputWeightMatrix);
 
-        Double[] inputXVector = new Double[inputLayerNeuronNumber + 1];
+        Double[] inputXVector = new Double[inputLayerNeuronNumber];
         Double[] expectedYvector = new Double[outputLayerNeuronNumber];
 
         VectorGenerator vectorGenerator = new VectorGenerator();
@@ -97,8 +97,8 @@ public class DependencyInjector {
                               String functionTag,
                               Double[] inputXVector,
                               Double[] expectedYvector) {
-        Double[][] hiddenWeightMatrix = new Double[inputLayerNeuronNumber + 1][hiddenLayerNeuronNumber];
-        Double[][] outputWeightMatrix = new Double[hiddenLayerNeuronNumber + 1][outputLayerNeuronNumber];
+        Double[][] hiddenWeightMatrix = new Double[inputLayerNeuronNumber][hiddenLayerNeuronNumber];
+        Double[][] outputWeightMatrix = new Double[hiddenLayerNeuronNumber][outputLayerNeuronNumber];
 
         MatrixGenerator generator = new MatrixGenerator();
         hiddenWeightMatrix = generator.generate(hiddenWeightMatrix);
@@ -144,8 +144,7 @@ public class DependencyInjector {
                                   int hiddenLayerNeuronNumber,
                                   double learningRate,
                                   int epochNumber,
-                                  IFunction<Double,
-                                                                            Double> injectedFunction,
+                                  IFunction<Double, Double> injectedFunction,
                                   Double[] inputXVector,
                                   Double[] expectedYvector,
                                   Double[][] hiddenWeightMatrix,

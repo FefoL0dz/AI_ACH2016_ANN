@@ -52,9 +52,9 @@ public class ANN {
                Double[] expectedYvector,
                Double[][] hiddenWeightMatrix,
                Double[][] outputWeightMatrix) {
-        this.inputLayerNeuronNumber = inputLayerNeuronNumber + 1;
+        this.inputLayerNeuronNumber = inputLayerNeuronNumber;
         this.outputLayerNeuronNumber = outputLayerNeuronNumber;
-        this.hiddenLayerNeuronNumber = hiddenLayerNeuronNumber + 1;
+        this.hiddenLayerNeuronNumber = hiddenLayerNeuronNumber;
         this.learningRate = learningRate;
         this.errorRate = Double.POSITIVE_INFINITY;
         this.epochMaxNumber = epochMaxNumber;

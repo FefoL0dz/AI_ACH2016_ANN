@@ -14,7 +14,7 @@ public class DoubleConverter {
     public static Double[] toDouble(double[] list) {
         Double[] result = new Double[list.length];
         for (int i = 0; i < list.length; i++) {
-            toDouble(list[i]);
+            result[i] = toDouble(list[i]);
         }
         return result;
     }
