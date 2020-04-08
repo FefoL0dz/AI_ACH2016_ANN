@@ -71,7 +71,7 @@ public class ANN {
         this.obtainedYVector = DoubleConverter.toDouble(new double[outputLayerNeuronNumber]);
 
         this.outputErrorInformation = DoubleConverter.toDouble(new double[outputLayerNeuronNumber]);
-        this.hiddenErrorInformation = DoubleConverter.toDouble(new double[hiddenLayerNeuronNumber - 1]); // desconsider bias
+        this.hiddenErrorInformation = DoubleConverter.toDouble(new double[hiddenLayerNeuronNumber - 1]); // not considering bias
 
         this.outputCorrectionTerm = DoubleConverter.toDouble(new double[outputWeightMatrix.length][outputWeightMatrix[0].length]);
         this.hiddenCorrectionTerm = DoubleConverter.toDouble(new double[hiddenWeightMatrix.length][hiddenWeightMatrix[0].length]);
@@ -92,8 +92,10 @@ public class ANN {
             run();
         } catch(Exception e) {
             GlobalExceptionHandler.handle(this, e);
+            System.exit(1);
         } finally {
             //finishExecution();
+            System.exit(0);
         }
     }
 
@@ -113,7 +115,11 @@ public class ANN {
         calculateOutputErrorInformation();
         calculateOutputCorrectionTerms();
         calculateHiddenErrorInformation();
-        //calculateHiddenCorrectionTerms();
+        calculateHiddenCorrectionTerms();
+    }
+
+    private void calculateHiddenCorrectionTerms() {
+
     }
 
     //Here we mustn't  consider bias, we use this offset to perform this step without consider error in bias
