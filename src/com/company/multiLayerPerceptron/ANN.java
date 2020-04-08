@@ -73,8 +73,8 @@ public class ANN {
         this.outputErrorInformation = DoubleConverter.toDouble(new double[outputLayerNeuronNumber]);
         this.hiddenErrorInformation = DoubleConverter.toDouble(new double[hiddenLayerNeuronNumber - 1]); // desconsider bias
 
-//        this.outputCorrectionTerm =
-//        this.hiddenCorrectionTerm =
+        this.outputCorrectionTerm = DoubleConverter.toDouble(new double[outputWeightMatrix.length][outputWeightMatrix[0].length]);
+        this.hiddenCorrectionTerm = DoubleConverter.toDouble(new double[hiddenWeightMatrix.length][hiddenWeightMatrix[0].length]);
         setBias();
     }
 
@@ -92,6 +92,8 @@ public class ANN {
             run();
         } catch(Exception e) {
             GlobalExceptionHandler.handle(this, e);
+        } finally {
+            //finishExecution();
         }
     }
 
@@ -111,18 +113,23 @@ public class ANN {
         calculateOutputErrorInformation();
         calculateOutputCorrectionTerms();
         calculateHiddenErrorInformation();
+        //calculateHiddenCorrectionTerms();
     }
 
     //Here we mustn't  consider bias, we use this offset to perform this step without consider error in bias
     private void calculateHiddenErrorInformation() {
         for (int i = 0; i < hiddenLayerNeuronNumber - 1; i++) {
-           // hiddenErrorInformation[i] = (getRatedWeights(i + 1)) * activationFunction.derivative(sumInputLayer(i + 1));
+            hiddenErrorInformation[i] = (getReformattedWeights(i + 1)) * activationFunction.derivative(sumInputLayer(i + 1));
         }
     }
 
-//    private Double getRatedWeights(int index) {
-//
-//    }
+    private Double getReformattedWeights(int index) {
+        Double result = 0.0;
+        for (int i = 0; i < outputLayerNeuronNumber; i++) {
+            result += outputWeightMatrix[index][i] * outputErrorInformation[i];
+        }
+        return result;
+    }
 
     private void calculateOutputCorrectionTerms() {
         Double[] reducedAdjustRate = DoubleConverter.toDouble(new double[outputErrorInformation.length]);
