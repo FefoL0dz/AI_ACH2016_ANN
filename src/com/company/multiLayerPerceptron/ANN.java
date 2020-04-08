@@ -33,6 +33,7 @@ public class ANN {
     private final Double expectedYvector[];
     private Double obtainedYVector[];
     private Double hiddenZVector[];
+    private Double errorInformation[];
 
     private final double bias = 1;
 
@@ -62,6 +63,7 @@ public class ANN {
 
         this.hiddenZVector = DoubleConverter.toDouble(new double[hiddenLayerNeuronNumber]);
         this.obtainedYVector = DoubleConverter.toDouble(new double[outputLayerNeuronNumber]);
+        this.errorInformation = DoubleConverter.toDouble(new double[outputLayerNeuronNumber]);
 
         setBias();
     }
@@ -88,6 +90,13 @@ public class ANN {
     }
 
     private void backPropagation() {
+        calculateErrorInformation();
+    }
+
+    private void calculateErrorInformation() {
+        for (int i = 0; i < outputLayerNeuronNumber; i++) {
+            errorInformation[i] = (expectedYvector[i] - obtainedYVector[i]) * activationFunction.derivative(sumHiddenLayer(i));
+        }
     }
 
     //We use this offset, starting with i = 1, not considering hidden layer bias. It do not must to be updated.

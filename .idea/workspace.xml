@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4446b4f-cf2e-41c2-b099-dca7f48763dd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/company/utils/exception/NotYetImplementedException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/math/IFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/math/IFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/math/Sigmoid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/math/Sigmoid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/math/Tanh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/math/Tanh.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/utils/IO/log/Logger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/utils/graph/Plotter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
