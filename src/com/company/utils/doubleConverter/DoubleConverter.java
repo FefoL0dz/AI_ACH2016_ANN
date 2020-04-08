@@ -11,6 +11,14 @@ package com.company.utils.doubleConverter;
 
 public class DoubleConverter {
 
+    public static Double[][] toDouble(double[][] matrix) {
+        Double[][] result = new Double[matrix.length][matrix[0].length];
+        for (int i = 0; i < matrix.length; i++) {
+            result[i] = toDouble(matrix[i]);
+        }
+        return result;
+    }
+
     public static Double[] toDouble(double[] list) {
         Double[] result = new Double[list.length];
         for (int i = 0; i < list.length; i++) {

@@ -20,4 +20,8 @@ public class Logger {
     public void logNeuralNetworkInfo(ANN neuralNetwork) {
         throw new NotYetImplementedException();
     }
+
+    public void logException(Exception e) {
+        throw new NotYetImplementedException();
+    }
 }

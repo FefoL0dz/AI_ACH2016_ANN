@@ -2,6 +2,7 @@ package com.company.multiLayerPerceptron;
 
 import com.company.tools.math.IFunction;
 import com.company.utils.doubleConverter.DoubleConverter;
+import com.company.utils.exception.GlobalExceptionHandler;
 
 /**
  Created by: Felipe Lodes in 07/04/2020.
@@ -70,8 +71,10 @@ public class ANN {
         this.obtainedYVector = DoubleConverter.toDouble(new double[outputLayerNeuronNumber]);
 
         this.outputErrorInformation = DoubleConverter.toDouble(new double[outputLayerNeuronNumber]);
-        this.hiddenErrorInformation = DoubleConverter.toDouble(new double[hiddenLayerNeuronNumber]);
+        this.hiddenErrorInformation = DoubleConverter.toDouble(new double[hiddenLayerNeuronNumber - 1]); // desconsider bias
 
+//        this.outputCorrectionTerm =
+//        this.hiddenCorrectionTerm =
         setBias();
     }
 
@@ -85,6 +88,14 @@ public class ANN {
     }
 
     public void start() {
+        try {
+            run();
+        } catch(Exception e) {
+            GlobalExceptionHandler.handle(this, e);
+        }
+    }
+
+    private void run() {
         while (!isTerminated()) {
             feedForward();
             backPropagation();
@@ -97,10 +108,35 @@ public class ANN {
     }
 
     private void backPropagation() {
-        calculateErrorInformation();
+        calculateOutputErrorInformation();
+        calculateOutputCorrectionTerms();
+        calculateHiddenErrorInformation();
     }
 
-    private void calculateErrorInformation() {
+    //Here we mustn't  consider bias, we use this offset to perform this step without consider error in bias
+    private void calculateHiddenErrorInformation() {
+        for (int i = 0; i < hiddenLayerNeuronNumber - 1; i++) {
+           // hiddenErrorInformation[i] = (getRatedWeights(i + 1)) * activationFunction.derivative(sumInputLayer(i + 1));
+        }
+    }
+
+//    private Double getRatedWeights(int index) {
+//
+//    }
+
+    private void calculateOutputCorrectionTerms() {
+        Double[] reducedAdjustRate = DoubleConverter.toDouble(new double[outputErrorInformation.length]);
+        for (int i = 0; i < reducedAdjustRate.length; i++) {
+            reducedAdjustRate[i] = learningRate * outputErrorInformation[i];
+        }
+        for (int i = 0; i < outputCorrectionTerm.length; i++) {
+            for (int j = 0; j < outputCorrectionTerm[i].length; j++) {
+                outputCorrectionTerm[i][j] = reducedAdjustRate[j] * hiddenZVector[i];
+            }
+        }
+    }
+
+    private void calculateOutputErrorInformation() {
         for (int i = 0; i < outputLayerNeuronNumber; i++) {
             outputErrorInformation[i] = (expectedYvector[i] - obtainedYVector[i]) * activationFunction.derivative(sumHiddenLayer(i));
         }
