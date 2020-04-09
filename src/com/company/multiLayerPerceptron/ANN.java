@@ -109,6 +109,17 @@ public class ANN {
     }
 
     private void updateWeightMatrixes() {
+        for (int i = 0; i < outputWeightMatrix.length; i++) {
+            for (int j = 0; j < outputWeightMatrix[i].length; j++) {
+                outputWeightMatrix[i][j] += outputCorrectionTerm[i][j];
+            }
+        }
+
+        for (int i = 0; i < hiddenWeightMatrix.length; i++) {
+            for (int j = 0; j < hiddenWeightMatrix[i].length; j++) {
+                hiddenWeightMatrix[i][j] += hiddenCorrectionTerm[i][j];
+            }
+        }
     }
 
     private void backPropagation() {
