@@ -119,7 +119,16 @@ public class ANN {
     }
 
     private void calculateHiddenCorrectionTerms() {
+        Double[] reducedAdjustRate = DoubleConverter.toDouble(new double[hiddenErrorInformation.length]);
+        for (int i = 0; i < reducedAdjustRate.length; i++) {
+            reducedAdjustRate[i] = learningRate * hiddenErrorInformation[i];
+        }
 
+        for (int i = 0; i < hiddenCorrectionTerm.length; i++) {
+            for (int j = 1; j < hiddenCorrectionTerm[i].length; j++) {
+                hiddenCorrectionTerm[i][j] = inputXVector[i] * reducedAdjustRate[j];
+            }
+        }
     }
 
     //Here we mustn't  consider bias, we use this offset to perform this step without consider error in bias
