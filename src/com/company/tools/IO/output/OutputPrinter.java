@@ -1,5 +1,7 @@
 package com.company.tools.IO.output;
 
+import com.company.tools.IO.BaseIOHandler;
+
 /**
  Created by: Felipe Lodes in 07/04/2020.
  Discipline: ACH2016 - "Inteligência Artificial"
@@ -9,5 +11,8 @@ package com.company.tools.IO.output;
 
  **/
 
-public class OutputPrinter {
+public class OutputPrinter extends BaseIOHandler {
+    public OutputPrinter(String path, String fileExtension) {
+        super(path, fileExtension);
+    }
 }

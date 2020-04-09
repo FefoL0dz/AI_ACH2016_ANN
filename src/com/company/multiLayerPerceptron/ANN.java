@@ -71,10 +71,10 @@ public class ANN {
         this.obtainedYVector = DoubleConverter.toDouble(new double[outputLayerNeuronNumber]);
 
         this.outputErrorInformation = DoubleConverter.toDouble(new double[outputLayerNeuronNumber]);
-        this.hiddenErrorInformation = DoubleConverter.toDouble(new double[hiddenLayerNeuronNumber - 1]); // desconsider bias
+        this.hiddenErrorInformation = DoubleConverter.toDouble(new double[hiddenLayerNeuronNumber - 1]); // not considering bias
 
-//        this.outputCorrectionTerm =
-//        this.hiddenCorrectionTerm =
+        this.outputCorrectionTerm = DoubleConverter.toDouble(new double[outputWeightMatrix.length][outputWeightMatrix[0].length]);
+        this.hiddenCorrectionTerm = DoubleConverter.toDouble(new double[hiddenWeightMatrix.length][hiddenWeightMatrix[0].length]);
         setBias();
     }
 
@@ -92,6 +92,10 @@ public class ANN {
             run();
         } catch(Exception e) {
             GlobalExceptionHandler.handle(this, e);
+            System.exit(1);
+        } finally {
+            //finishExecution();
+            System.exit(0);
         }
     }
 
@@ -105,24 +109,53 @@ public class ANN {
     }
 
     private void updateWeightMatrixes() {
+        for (int i = 0; i < outputWeightMatrix.length; i++) {
+            for (int j = 0; j < outputWeightMatrix[i].length; j++) {
+                outputWeightMatrix[i][j] += outputCorrectionTerm[i][j];
+            }
+        }
+
+        for (int i = 0; i < hiddenWeightMatrix.length; i++) {
+            for (int j = 0; j < hiddenWeightMatrix[i].length; j++) {
+                hiddenWeightMatrix[i][j] += hiddenCorrectionTerm[i][j];
+            }
+        }
     }
 
     private void backPropagation() {
         calculateOutputErrorInformation();
         calculateOutputCorrectionTerms();
         calculateHiddenErrorInformation();
+        calculateHiddenCorrectionTerms();
+    }
+
+    private void calculateHiddenCorrectionTerms() {
+        Double[] reducedAdjustRate = DoubleConverter.toDouble(new double[hiddenErrorInformation.length]);
+        for (int i = 0; i < reducedAdjustRate.length; i++) {
+            reducedAdjustRate[i] = learningRate * hiddenErrorInformation[i];
+        }
+
+        for (int i = 0; i < hiddenCorrectionTerm.length; i++) {
+            for (int j = 1; j < hiddenCorrectionTerm[i].length; j++) {
+                hiddenCorrectionTerm[i][j] = inputXVector[i] * reducedAdjustRate[j];
+            }
+        }
     }
 
     //Here we mustn't  consider bias, we use this offset to perform this step without consider error in bias
     private void calculateHiddenErrorInformation() {
         for (int i = 0; i < hiddenLayerNeuronNumber - 1; i++) {
-           // hiddenErrorInformation[i] = (getRatedWeights(i + 1)) * activationFunction.derivative(sumInputLayer(i + 1));
+            hiddenErrorInformation[i] = (getReformattedWeights(i + 1)) * activationFunction.derivative(sumInputLayer(i + 1));
         }
     }
 
-//    private Double getRatedWeights(int index) {
-//
-//    }
+    private Double getReformattedWeights(int index) {
+        Double result = 0.0;
+        for (int i = 0; i < outputLayerNeuronNumber; i++) {
+            result += outputWeightMatrix[index][i] * outputErrorInformation[i];
+        }
+        return result;
+    }
 
     private void calculateOutputCorrectionTerms() {
         Double[] reducedAdjustRate = DoubleConverter.toDouble(new double[outputErrorInformation.length]);
