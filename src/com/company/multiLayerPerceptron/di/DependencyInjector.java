@@ -97,8 +97,8 @@ public class DependencyInjector {
                               String functionTag,
                               Double[] inputXVector,
                               Double[] expectedYvector) {
-        Double[][] hiddenWeightMatrix = new Double[inputLayerNeuronNumber][hiddenLayerNeuronNumber];
-        Double[][] outputWeightMatrix = new Double[hiddenLayerNeuronNumber][outputLayerNeuronNumber];
+        Double[][] hiddenWeightMatrix = new Double[inputLayerNeuronNumber][hiddenLayerNeuronNumber]; //{{-0.1, 0.1, -0.1}, {-0.1, 0.1, 0.1}, {0.1, -0.1, -0.1}};
+        Double[][] outputWeightMatrix = new Double[hiddenLayerNeuronNumber][outputLayerNeuronNumber]; //{{-0.1, 0.1, 0.0, 0.1}, {0.1, -0.1, 0.1, -0.1}};
 
         MatrixGenerator generator = new MatrixGenerator();
         hiddenWeightMatrix = generator.generate(hiddenWeightMatrix);

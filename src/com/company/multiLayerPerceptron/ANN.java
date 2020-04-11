@@ -1,7 +1,10 @@
 package com.company.multiLayerPerceptron;
 
+import com.company.tools.IO.log.Logger;
+import com.company.tools.graph.Plotter;
 import com.company.tools.math.IFunction;
 import com.company.utils.doubleConverter.DoubleConverter;
+import com.company.utils.exception.ExitStatus;
 import com.company.utils.exception.GlobalExceptionHandler;
 
 /**
@@ -88,14 +91,15 @@ public class ANN {
     }
 
     public void start() {
+        int executionFinishStatus = ExitStatus.FINISHED_SUCCESSFULLY;
         try {
             run();
         } catch(Exception e) {
+            executionFinishStatus = ExitStatus.FINISHED_WITH_ERROR;
             GlobalExceptionHandler.handle(this, e);
-            System.exit(1);
         } finally {
-            //finishExecution();
-            System.exit(0);
+            finishExecution();
+            System.exit(executionFinishStatus);
         }
     }
 
@@ -103,12 +107,13 @@ public class ANN {
         while (!isTerminated()) {
             feedForward();
             backPropagation();
-            updateWeightMatrixes();
+            updateWeightMatrices();
             updateCurrentEpoch();
+            logIteration();
         }
     }
 
-    private void updateWeightMatrixes() {
+    private void updateWeightMatrices() {
         for (int i = 0; i < outputWeightMatrix.length; i++) {
             for (int j = 0; j < outputWeightMatrix[i].length; j++) {
                 outputWeightMatrix[i][j] += outputCorrectionTerm[i][j];
@@ -208,6 +213,16 @@ public class ANN {
 
     private boolean isStagnant() {
         //TODO: Must t be implemented
+        //throw new NotYetImplementedException();
         return false;
+    }
+
+    private void logIteration() {
+        Logger.getInstance().logNeuralNetworkInfo(this);
+        Plotter.getInstance().plot(this);
+    }
+
+    private void finishExecution() {
+        //throw new NotYetImplementedException();
     }
 }

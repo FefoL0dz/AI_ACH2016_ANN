@@ -1,5 +1,6 @@
 package com.company.tools.graph;
 
+import com.company.multiLayerPerceptron.ANN;
 import com.company.utils.exception.NotYetImplementedException;
 
 /**
@@ -16,7 +17,7 @@ public class Plotter {
         return new Plotter();
     }
 
-    public void plot() {
+    public void plot(ANN neuralNetwork) {
         throw new NotYetImplementedException();
     }
 }
