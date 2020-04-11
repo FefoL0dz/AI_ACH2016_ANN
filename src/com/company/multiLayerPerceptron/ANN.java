@@ -103,13 +103,17 @@ public class ANN {
         }
     }
 
+//    public void start() {
+//        run();
+//    }
+
     private void run() {
         while (!isTerminated()) {
             feedForward();
             backPropagation();
             updateWeightMatrices();
             updateCurrentEpoch();
-            logIteration();
+            //logIteration();
         }
     }
 
@@ -142,7 +146,7 @@ public class ANN {
 
         for (int i = 0; i < hiddenCorrectionTerm.length; i++) {
             for (int j = 1; j < hiddenCorrectionTerm[i].length; j++) {
-                hiddenCorrectionTerm[i][j] = inputXVector[i] * reducedAdjustRate[j];
+                hiddenCorrectionTerm[i][j] = inputXVector[i] * reducedAdjustRate[j - 1];
             }
         }
     }
