@@ -1,7 +1,11 @@
 package com.company.multiLayerPerceptron;
 
+import com.company.tools.IO.log.Logger;
+import com.company.tools.generator.IntGenerator;
+import com.company.tools.graph.Plotter;
 import com.company.tools.math.IFunction;
 import com.company.utils.doubleConverter.DoubleConverter;
+import com.company.utils.exception.ExitStatus;
 import com.company.utils.exception.GlobalExceptionHandler;
 
 /**
@@ -33,8 +37,11 @@ public class ANN {
 
     IFunction<Double, Double> activationFunction;
 
+    private Double inputDataSet[][];
+    private Double outputDataSet[][];
+
     private Double inputXVector[];
-    private final Double expectedYvector[];
+    private Double expectedYvector[];
     private Double obtainedYVector[];
     private Double hiddenZVector[];
 
@@ -49,8 +56,8 @@ public class ANN {
                double learningRate,
                int epochMaxNumber,
                IFunction<Double, Double> activationFunction,
-               Double[] inputXVector,
-               Double[] expectedYvector,
+               Double[][] inputXVectors,
+               Double[][] expectedYVectors,
                Double[][] hiddenWeightMatrix,
                Double[][] outputWeightMatrix) {
         this.inputLayerNeuronNumber = inputLayerNeuronNumber;
@@ -61,8 +68,12 @@ public class ANN {
         this.epochMaxNumber = epochMaxNumber;
         this.activationFunction = activationFunction;
         this.currentEpoch = 0;
-        this.inputXVector = inputXVector;
-        this.expectedYvector = expectedYvector;
+
+        this.inputDataSet = inputXVectors;
+        this.outputDataSet = expectedYVectors;
+
+        this.inputXVector = inputXVectors[0];
+        this.expectedYvector = expectedYVectors[0];
 
         this.hiddenWeightMatrix = hiddenWeightMatrix;
         this.outputWeightMatrix = outputWeightMatrix;
@@ -87,28 +98,48 @@ public class ANN {
         this.currentEpoch++;
     }
 
-    public void start() {
+    public void train() {
+        int executionFinishStatus = ExitStatus.FINISHED_SUCCESSFULLY;
         try {
-            run();
+            startTraining();
         } catch(Exception e) {
+            executionFinishStatus = ExitStatus.FINISHED_WITH_ERROR;
             GlobalExceptionHandler.handle(this, e);
-            System.exit(1);
         } finally {
-            //finishExecution();
-            System.exit(0);
+            finishExecution();
+           // System.exit(executionFinishStatus);
         }
     }
 
-    private void run() {
+    public Double predict(Double[] input) {
+        this.inputXVector = input;
+        feedForward();
+        return this.obtainedYVector[0];
+    }
+
+    private void startTraining() {
         while (!isTerminated()) {
             feedForward();
             backPropagation();
-            updateWeightMatrixes();
+            updateWeightMatrices();
             updateCurrentEpoch();
+            changeTrainingData();
+            //logIteration();
         }
     }
 
-    private void updateWeightMatrixes() {
+    private void changeTrainingData() {
+        int dataSetInstancesNumber = inputDataSet.length;
+        int randomIndex = new IntGenerator().generate(dataSetInstancesNumber);
+        setNewTrainingInstance(Math.abs(randomIndex));
+    }
+
+    private void setNewTrainingInstance(int index) {
+        this.inputXVector = inputDataSet[index];
+        this.expectedYvector = outputDataSet[index];
+    }
+
+    private void updateWeightMatrices() {
         for (int i = 0; i < outputWeightMatrix.length; i++) {
             for (int j = 0; j < outputWeightMatrix[i].length; j++) {
                 outputWeightMatrix[i][j] += outputCorrectionTerm[i][j];
@@ -137,7 +168,7 @@ public class ANN {
 
         for (int i = 0; i < hiddenCorrectionTerm.length; i++) {
             for (int j = 1; j < hiddenCorrectionTerm[i].length; j++) {
-                hiddenCorrectionTerm[i][j] = inputXVector[i] * reducedAdjustRate[j];
+                hiddenCorrectionTerm[i][j] = inputXVector[i] * reducedAdjustRate[j - 1];
             }
         }
     }
@@ -208,6 +239,16 @@ public class ANN {
 
     private boolean isStagnant() {
         //TODO: Must t be implemented
+        //throw new NotYetImplementedException();
         return false;
+    }
+
+    private void logIteration() {
+        Logger.getInstance().logNeuralNetworkInfo(this);
+        Plotter.getInstance().plot(this);
+    }
+
+    private void finishExecution() {
+        //throw new NotYetImplementedException();
     }
 }

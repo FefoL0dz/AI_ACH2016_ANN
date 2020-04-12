@@ -1,6 +1,7 @@
 package com.company.tools.IO.output;
 
 import com.company.tools.IO.BaseIOHandler;
+import com.company.tools.IO.FileURIComponents;
 
 /**
  Created by: Felipe Lodes in 07/04/2020.
@@ -12,7 +13,8 @@ import com.company.tools.IO.BaseIOHandler;
  **/
 
 public class OutputPrinter extends BaseIOHandler {
-    public OutputPrinter(String path, String fileExtension) {
-        super(path, fileExtension);
+
+    public OutputPrinter(String fileName, String fileExtension) {
+        super(FileURIComponents.OUTPUT_FOLDER_NAME + "\\" + fileName, fileExtension);
     }
 }

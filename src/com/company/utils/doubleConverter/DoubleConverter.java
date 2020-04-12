@@ -1,5 +1,8 @@
 package com.company.utils.doubleConverter;
 
+import java.util.Iterator;
+import java.util.List;
+
 /**
  Created by: Felipe Lodes in 07/04/2020.
  Discipline: ACH2016 - "Inteligência Artificial"
@@ -10,6 +13,20 @@ package com.company.utils.doubleConverter;
  **/
 
 public class DoubleConverter {
+
+    public static Double[][] doubleFromLists(List<List<Double>> list) {
+        double[][] matrix = new double[list.size()][];
+
+        Iterator iterator = list.iterator();
+
+        int i = 0;
+        while(iterator.hasNext()) {
+            matrix[i] = toDouble((List<Double>)iterator.next());
+            i++;
+        }
+        //here we could use Double object instead primitive double to avoid calling toDouble method (less execution processing)
+        return toDouble(matrix);
+    }
 
     public static Double[][] toDouble(double[][] matrix) {
         Double[][] result = new Double[matrix.length][matrix[0].length];
@@ -25,6 +42,15 @@ public class DoubleConverter {
             result[i] = toDouble(list[i]);
         }
         return result;
+    }
+
+    public static double[] toDouble(List<Double> list) {
+        double[] ret = new double[list.size()];
+        Iterator<Double> iterator = list.iterator();
+        for (int i = 0; i < ret.length; i++) {
+            ret[i] = iterator.next().doubleValue();
+        }
+        return ret;
     }
 
     public static Double toDouble(double value) {

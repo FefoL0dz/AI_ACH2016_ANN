@@ -1,8 +1,11 @@
 package com.company.tools.IO.input;
 
 import com.company.tools.IO.BaseIOHandler;
+import com.company.tools.IO.FileURIComponents;
+import com.company.utils.exception.UnableToReadFileException;
+
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
@@ -17,12 +20,17 @@ import java.util.ArrayList;
  **/
 
 public class InputReader extends BaseIOHandler {
-    public InputReader(String path, String fileExtension) {
-        super(path, fileExtension);
+
+    public InputReader(String fileName, String fileExtension) {
+        super(FileURIComponents.INPUT_FOLDER_NAME + "\\" + fileName, fileExtension);
     }
 
-    public List<List<Double>> read() throws FileNotFoundException {
-        Scanner sc = new Scanner(new File(path + fileExtension));
+    public InputReader(String fileName) {
+        super(FileURIComponents.INPUT_FOLDER_NAME + "\\" + fileName);
+    }
+
+    public List<List<Double>> readInput() {
+        Scanner sc = getScanner();
 
         List<List<Double>> input = new ArrayList<List<Double>>();
 
@@ -30,13 +38,13 @@ public class InputReader extends BaseIOHandler {
             String[] inputRowString = sc.nextLine().split(",");
             List inputRow = new ArrayList();
 
-            // Add X
+            //Add bias when reading input
+            inputRow.add(Double.parseDouble("1"));
+
+            // Add X (Input Neuron Layer Values)
             for (int i = 0; i < inputRowString.length - 1; i++) {
                 inputRow.add(Double.parseDouble(inputRowString[i].replace("\uFEFF","")));
             }
-
-            // Add Y
-            inputRow.add(inputRowString[inputRowString.length - 1]);
 
             input.add(inputRow);
         }
@@ -44,5 +52,37 @@ public class InputReader extends BaseIOHandler {
         sc.close();
 
         return input;
+    }
+
+    public List<List<Double>> readOutput() {
+
+        Scanner sc = getScanner();
+
+        List<List<Double>> input = new ArrayList<>();
+
+        while(sc.hasNextLine()) {
+            List outputRow = new ArrayList();
+
+            String[] inputRowString = sc.nextLine().split(",");
+
+            // Add Y (Output Neuron Layer Desired Values)
+            outputRow.add(Double.parseDouble(inputRowString[inputRowString.length - 1]));
+            input.add(outputRow);
+        }
+
+        sc.close();
+        return input;
+    }
+
+    public Scanner getScanner() {
+        Scanner sc;
+        try {
+            sc = new Scanner(new File(path + fileExtension));
+        } catch (IOException e) {
+            throw new UnableToReadFileException(e.getMessage());
+        } catch (Exception e) {
+            throw e;
+        }
+        return sc;
     }
 }

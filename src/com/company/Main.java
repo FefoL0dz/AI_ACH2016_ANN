@@ -2,7 +2,6 @@ package com.company;
 
 import com.company.multiLayerPerceptron.ANN;
 import com.company.multiLayerPerceptron.di.DependencyInjector;
-import com.company.utils.doubleConverter.DoubleConverter;
 import com.company.tools.math.Sigmoid;
 
 /**
@@ -23,41 +22,44 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        //TODO: Create a config file to centralize settings/preferences resources
 
         String functionTag = Sigmoid.TAG;
+        double learningRate = 0.66;
+        int epochNumber = 30000;
+        int hiddenLayerSize = 3;
+        String fileDependency = "problemAND.csv";
 
-        int inputLayerNeuronNumber = 3;
-        int outputLayerNeuronNumber = 2;
-        int hiddenLayerNeuronNumber = 4;
-
-        double learningRate = 0.5;
-        int epochNumber = 100;
-
-        double[] xInput = {1, 1, 1}; //TODO: Solve this problem - needs to pass bias as parameter
-        double[] yExpected = {1, 0};
-
-        getInstance().run(inputLayerNeuronNumber, outputLayerNeuronNumber, hiddenLayerNeuronNumber, learningRate, epochNumber, functionTag, DoubleConverter.toDouble(xInput), DoubleConverter.toDouble(yExpected));
+        ANN mlp = getInstance().train(learningRate, epochNumber, functionTag, hiddenLayerSize, fileDependency);
+        runTests(mlp);
+        ANN mlp1 = getInstance().train(learningRate, epochNumber, functionTag, hiddenLayerSize);
+        runTests(mlp1);
     }
 
-    private void run(int inputLayerNeuronNumber, int outputLayerNeuronNumber, int hiddenLayerNeuronNumber, double learningRate, int epochNumber, String functionTag, Double[] xInput, Double[] yExpected) {
+    private static void runTests(ANN mlp) {
+        Double[] test1 = {1.0, -1.0, -1.0};
+        Double[] test2 = {1.0, 1.0, -1.0};
+        Double[] test3 = {1.0, -1.0, 1.0};
+        Double[] test4 = {1.0, 1.0, 1.0};
+        System.out.println(mlp.predict(test1));
+        System.out.println(mlp.predict(test2));
+        System.out.println(mlp.predict(test3));
+        System.out.println(mlp.predict(test4));
+        System.out.println("---------------------------------------------------------------------------");
+    }
+
+    public ANN train (double learningRate, int epochNumber, String functionTag, int hiddenLayerSize, String fileName) {
         neuralNetwork = DependencyInjector
-                .createInstance(inputLayerNeuronNumber, outputLayerNeuronNumber, hiddenLayerNeuronNumber,
-                        learningRate, epochNumber, functionTag, xInput, yExpected).inject();
-
-        neuralNetwork.start();
+                .createInstanceFromFileDependency(learningRate, epochNumber, functionTag, hiddenLayerSize, fileName).inject();
+        neuralNetwork.train();
+        return neuralNetwork;
     }
 
-    public void run (int inputLayerNeuronNumber,
-                         int outputLayerNeuronNumber,
-                         int hiddenLayerNeuronNumber,
-                         double learningRate,
-                         int epochNumber,
-                         String functionTag) {
-            neuralNetwork = DependencyInjector
-                    .createInstance(inputLayerNeuronNumber, outputLayerNeuronNumber, hiddenLayerNeuronNumber,
-                    learningRate, epochNumber, functionTag).inject();
-
-            neuralNetwork.start();
+    public ANN train(double learningRate, int epochNumber, String functionTag, int hiddenLayerSize) {
+        double[][] inputs = {{1,-1,-1},{1,-1,1},{1,1,-1},{1,1,1}};
+        double[][] outputs = {{0},{0},{0},{1}};
+        neuralNetwork = DependencyInjector
+                .createInstanceFromLocalTest(learningRate, epochNumber, functionTag, hiddenLayerSize, inputs, outputs).inject();
+        neuralNetwork.train();
+        return neuralNetwork;
     }
 }

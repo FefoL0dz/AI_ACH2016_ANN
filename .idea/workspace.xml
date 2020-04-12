@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4446b4f-cf2e-41c2-b099-dca7f48763dd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/company/tools/IO/Printer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ACH2016/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/multiLayerPerceptron/ANN.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ACH2016/com/company/multiLayerPerceptron/ANN.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/di/DependencyInjector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/di/DependencyInjector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/tools/IO/input/InputReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tools/IO/input/InputReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/tools/IO/input/MainInputTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tools/IO/input/MainInputTester.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,9 +38,15 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/Telegram Desktop/X_MEANS_com_distancia_nova/X-MEANS" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Felipe Lodes\Desktop\AI_ACH2016_ANN\src\externalLibs" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Felipe Lodes\Desktop\AI_ACH2016_ANN\src\com\company\tools" />
       <recent name="C:\Users\Felipe Lodes\Desktop\AI_ACH2016_ANN\src\com\company\utils" />
@@ -62,9 +76,37 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainInputTester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.tools.IO.input.MainInputTester" />
+      <module name="ACH2016" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.company.tools.IO.input.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainPlotterTester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.tools.graph.MainPlotterTester" />
+      <module name="ACH2016" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.company.tools.graph.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.MainInputTester" />
+        <item itemvalue="Application.MainPlotterTester" />
         <item itemvalue="Application.MainFunctionTest" />
       </list>
     </recent_temporary>
@@ -83,54 +125,83 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="484" y="87" width="374" height="560" key="#com.intellij.ide.util.MemberChooser" timestamp="1586387268917">
+    <state x="484" y="87" width="374" height="560" key="#com.intellij.ide.util.MemberChooser" timestamp="1586676928913">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="484" y="87" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1586387268917" />
+    <state x="484" y="87" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1586676928913" />
     <state x="513" y="116" width="374" height="560" key="#com.intellij.ide.util.MemberChooser/45.27.1321.741@45.27.1321.741" timestamp="1586235958428" />
-    <state x="413" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1586304605067">
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1586708781803">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1586304605067" />
-    <state x="488" y="155" width="424" height="482" key="FileChooserDialogImpl" timestamp="1586226792760">
-      <screen x="45" y="27" width="1321" height="741" />
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1586708781803" />
+    <state x="458" y="126" width="424" height="482" key="FileChooserDialogImpl" timestamp="1586650206255">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="458" y="126" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1586650206255" />
     <state x="488" y="155" width="424" height="482" key="FileChooserDialogImpl/45.27.1321.741@45.27.1321.741" timestamp="1586226792760" />
-    <state width="1323" height="222" key="GridCell.Tab.0.bottom" timestamp="1586391346472">
+    <state width="1323" height="202" key="GridCell.Tab.0.bottom" timestamp="1586714514881">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="222" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586391346472" />
-    <state width="1323" height="222" key="GridCell.Tab.0.center" timestamp="1586391346471">
+    <state width="1323" height="202" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586714514881" />
+    <state width="1323" height="202" key="GridCell.Tab.0.center" timestamp="1586714514881">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="222" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586391346471" />
-    <state width="1323" height="222" key="GridCell.Tab.0.left" timestamp="1586391346471">
+    <state width="1323" height="202" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586714514881" />
+    <state width="1323" height="202" key="GridCell.Tab.0.left" timestamp="1586714514881">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="222" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586391346471" />
-    <state width="1323" height="222" key="GridCell.Tab.0.right" timestamp="1586391346472">
+    <state width="1323" height="202" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586714514881" />
+    <state width="1323" height="202" key="GridCell.Tab.0.right" timestamp="1586714514881">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="222" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586391346472" />
-    <state width="1323" height="222" key="GridCell.Tab.1.bottom" timestamp="1586391346252">
+    <state width="1323" height="202" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586714514881" />
+    <state width="1323" height="202" key="GridCell.Tab.1.bottom" timestamp="1586714514686">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="222" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586391346252" />
-    <state width="1323" height="222" key="GridCell.Tab.1.center" timestamp="1586391346252">
+    <state width="1323" height="202" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586714514686" />
+    <state width="1323" height="202" key="GridCell.Tab.1.center" timestamp="1586714514686">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="222" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1586391346252" />
-    <state width="1323" height="222" key="GridCell.Tab.1.left" timestamp="1586391346252">
+    <state width="1323" height="202" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1586714514686" />
+    <state width="1323" height="202" key="GridCell.Tab.1.left" timestamp="1586714514686">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="222" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1586391346252" />
-    <state width="1323" height="222" key="GridCell.Tab.1.right" timestamp="1586391346252">
+    <state width="1323" height="202" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1586714514686" />
+    <state width="1323" height="202" key="GridCell.Tab.1.right" timestamp="1586714514686">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="222" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1586391346252" />
-    <state x="384" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1586382384075">
+    <state width="1323" height="202" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1586714514686" />
+    <state x="163" y="0" key="SettingsEditor" timestamp="1586647447611">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="384" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1586382384075" />
+    <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1586647447611" />
+    <state x="384" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1586706523766">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="384" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1586706523766" />
+    <state x="260" y="100" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1586643066085">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="260" y="100" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1366.728@0.0.1366.728" timestamp="1586643066085" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1586644724117">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1586644724117" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java</url>
+          <line>170</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
