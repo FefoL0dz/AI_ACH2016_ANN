@@ -28,7 +28,7 @@ public class Main {
         double learningRate = 0.66;
         int epochNumber = 3000;
         int hiddenLayerSize = 4;
-        String fileDependency = "problemOR.csv";
+        String fileDependency = "problemNOT.csv";
 
         ANN mlp = getInstance().train(learningRate, epochNumber, functionTag, hiddenLayerSize, fileDependency);
         //ANN mlp = getInstance().trainWithHardCodedDataSet(learningRate, epochNumber, functionTag, hiddenLayerSize);
@@ -36,17 +36,21 @@ public class Main {
     }
 
     private static void runTests(ANN mlp) {
-        //Boolean Table
-        Double[] test1 = {1.0, -1.0, -1.0};
-        Double[] test2 = {1.0, 1.0, -1.0};
-        Double[] test3 = {1.0, -1.0, 1.0};
-        Double[] test4 = {1.0, 1.0, 1.0};
+        //Boolean Table (1)
+        Double[] test1 = {1.0, -1.0};
+        Double[] test2 = {1.0, 1.0};
+
+//        //Boolean Table (2)
+//        Double[] test1 = {1.0, -1.0, -1.0};
+//        Double[] test2 = {1.0, 1.0, -1.0};
+//        Double[] test3 = {1.0, -1.0, 1.0};
+//        Double[] test4 = {1.0, 1.0, 1.0};
 
         double threshold = 0.5;
         Printer.printOutput(mlp.predict(test1), threshold);
         Printer.printOutput(mlp.predict(test2), threshold);
-        Printer.printOutput(mlp.predict(test3), threshold);
-        Printer.printOutput(mlp.predict(test4), threshold);
+       // Printer.printOutput(mlp.predict(test3), threshold);
+       // Printer.printOutput(mlp.predict(test4), threshold);
         System.out.println("---------------------------------------------------------------------------");
     }
 
