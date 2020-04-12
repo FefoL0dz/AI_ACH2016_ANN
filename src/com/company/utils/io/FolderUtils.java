@@ -1,5 +1,6 @@
-package com.company.tools.IO;
+package com.company.utils.io;
 
+import com.company.tools.IO.BaseIOHandler;
 import com.company.utils.exception.UnableToCreateFolderException;
 
 import java.io.File;
@@ -15,14 +16,10 @@ import java.nio.file.Paths;
 
  **/
 
-public class FolderCreator extends BaseIOHandler {
+public class FolderUtils {
 
-    public FolderCreator(String path) {
-        super(path);
-    }
-
-    public void createFolder() {
-        if(!isFolderCreated()) {
+    public static void createFolder(final String path) {
+        if(!isFolderCreated(path)) {
             boolean success = (new File(path)).mkdirs();
 
             if(!success)
@@ -30,7 +27,7 @@ public class FolderCreator extends BaseIOHandler {
         }
     }
 
-    public boolean isFolderCreated() {
+    public static boolean isFolderCreated(final String path) {
         return Files.exists(Paths.get(path));
     }
 }
