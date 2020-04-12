@@ -17,4 +17,8 @@ public class OutputPrinter extends BaseIOHandler {
     public OutputPrinter(String fileName, String fileExtension) {
         super(FileURIComponents.OUTPUT_FOLDER_NAME + "\\" + fileName, fileExtension);
     }
+
+    public OutputPrinter(String path) {
+        super(FileURIComponents.OUTPUT_FOLDER_NAME + "\\" + path);
+    }
 }

@@ -50,6 +50,8 @@ public class ANN {
 
     private final double bias = 1;
 
+    private boolean isTraining = false;
+
     public ANN(int inputLayerNeuronNumber,
                int outputLayerNeuronNumber,
                int hiddenLayerNeuronNumber,
@@ -94,7 +96,7 @@ public class ANN {
         this.hiddenZVector[0] = bias;
     }
 
-    public void updateCurrentEpoch() {
+    private void updateCurrentEpoch() {
         this.currentEpoch++;
     }
 
@@ -106,31 +108,32 @@ public class ANN {
             executionFinishStatus = ExitStatus.FINISHED_WITH_ERROR;
             GlobalExceptionHandler.handle(this, e);
              System.exit(executionFinishStatus);
-        } finally {
-            finishExecution();
         }
     }
 
     public Double[] predict(Double[] input) {
+        isTraining = false;
         this.inputXVector = input;
         feedForward();
         return this.obtainedYVector;
     }
 
     public Double predictOneOutputNeuron(Double[] input) {
+        isTraining = false;
         this.inputXVector = input;
         feedForward();
         return this.obtainedYVector[0] > 0.5 ? 1.0 : 0.0;
     }
 
     private void startTraining() {
+        isTraining = true;
         while (!isTerminated()) {
             feedForward();
             backPropagation();
             updateWeightMatrices();
             updateCurrentEpoch();
             changeTrainingData();
-            //logIteration();
+            logIteration();
         }
     }
 
@@ -244,17 +247,92 @@ public class ANN {
     }
 
     private boolean isStagnant() {
-        //TODO: Must t be implemented
-        //throw new NotYetImplementedException();
+        //TODO: Must be implemented - should put a threshold in error counter
         return false;
+    }
+
+    public int getInputLayerNeuronNumber() {
+        return inputLayerNeuronNumber;
+    }
+
+    public int getOutputLayerNeuronNumber() {
+        return outputLayerNeuronNumber;
+    }
+
+    public int getHiddenLayerNeuronNumber() {
+        return hiddenLayerNeuronNumber;
+    }
+
+    public double getLearningRate() {
+        return learningRate;
+    }
+
+    public int getEpochMaxNumber() {
+        return epochMaxNumber;
+    }
+
+    public int getCurrentEpoch() {
+        return currentEpoch;
+    }
+
+    public Double[][] getHiddenWeightMatrix() {
+        return hiddenWeightMatrix;
+    }
+
+    public Double[][] getOutputWeightMatrix() {
+        return outputWeightMatrix;
+    }
+
+    public Double[][] getOutputCorrectionTerm() {
+        return outputCorrectionTerm;
+    }
+
+    public Double[][] getHiddenCorrectionTerm() {
+        return hiddenCorrectionTerm;
+    }
+
+    public IFunction<Double, Double> getActivationFunction() {
+        return activationFunction;
+    }
+
+    public Double[][] getInputDataSet() {
+        return inputDataSet;
+    }
+
+    public Double[][] getOutputDataSet() {
+        return outputDataSet;
+    }
+
+    public Double[] getInputXVector() {
+        return inputXVector;
+    }
+
+    public Double[] getExpectedYvector() {
+        return expectedYvector;
+    }
+
+    public Double[] getObtainedYVector() {
+        return obtainedYVector;
+    }
+
+    public Double[] getHiddenZVector() {
+        return hiddenZVector;
+    }
+
+    public Double[] getHiddenErrorInformation() {
+        return hiddenErrorInformation;
+    }
+
+    public Double[] getOutputErrorInformation() {
+        return outputErrorInformation;
+    }
+
+    public boolean isTraining() {
+        return isTraining;
     }
 
     private void logIteration() {
         Logger.getInstance().logNeuralNetworkInfo(this);
         Plotter.getInstance().plot(this);
-    }
-
-    private void finishExecution() {
-        //throw new NotYetImplementedException();
     }
 }

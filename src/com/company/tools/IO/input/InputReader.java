@@ -53,7 +53,7 @@ public class InputReader extends BaseIOHandler {
     }
 
     public List<List<Double>> readOutput() {
-        List<List<Double>> input = new ArrayList<>();
+        List<List<Double>> input;
         try {
            input = readDoubleOutput();
         } catch(NumberFormatException e) {

@@ -3,14 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e4446b4f-cf2e-41c2-b099-dca7f48763dd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ACH2016/com/company/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/multiLayerPerceptron/ANN.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ACH2016/com/company/multiLayerPerceptron/ANN.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/di/DependencyInjector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/di/DependencyInjector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/tools/IO/Printer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tools/IO/Printer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/tools/IO/input/InputReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tools/IO/input/InputReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/tools/IO/input/MainInputTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tools/IO/input/MainInputTester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/tools/IO/output/OutputPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tools/IO/output/OutputPrinter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,10 +121,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="484" y="87" width="374" height="560" key="#com.intellij.ide.util.MemberChooser" timestamp="1586676928913">
+    <state x="484" y="87" width="374" height="560" key="#com.intellij.ide.util.MemberChooser" timestamp="1586731409581">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="484" y="87" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1586676928913" />
+    <state x="484" y="87" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1586731409581" />
     <state x="513" y="116" width="374" height="560" key="#com.intellij.ide.util.MemberChooser/45.27.1321.741@45.27.1321.741" timestamp="1586235958428" />
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1586708781803">
       <screen x="0" y="0" width="1366" height="728" />
@@ -193,27 +189,27 @@
       <breakpoints>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java</url>
-          <line>176</line>
+          <line>179</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java</url>
-          <line>87</line>
+          <line>89</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java</url>
-          <line>139</line>
+          <line>142</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java</url>
-          <line>72</line>
+          <line>74</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java</url>
-          <line>144</line>
+          <line>147</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>

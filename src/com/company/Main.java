@@ -27,9 +27,9 @@ public class Main {
     public static void main(String[] args) {
 
         String functionTag = Sigmoid.TAG;
-        double learningRate = 0.6;
+        double learningRate = 0.65;
         int epochNumber = 300000;
-        int hiddenLayerSize = 12;
+        int hiddenLayerSize = 9;
         String fileDependency = "caracteres-limpo.csv";
         String fileTest = "caracteres-ruido.csv";
 
