@@ -1,6 +1,8 @@
 package com.company.tools.IO.input;
 
 import com.company.tools.IO.BaseIOHandler;
+import com.company.tools.IO.FileURIComponents;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -17,11 +19,13 @@ import java.util.ArrayList;
  **/
 
 public class InputReader extends BaseIOHandler {
-    public InputReader(String path, String fileExtension) {
-        super(path, fileExtension);
+
+    public InputReader(String fileName, String fileExtension) {
+        super(FileURIComponents.INPUT_FOLDER_NAME + "\\" + fileName, fileExtension);
     }
 
     public List<List<Double>> read() throws FileNotFoundException {
+
         Scanner sc = new Scanner(new File(path + fileExtension));
 
         List<List<Double>> input = new ArrayList<List<Double>>();
@@ -30,12 +34,12 @@ public class InputReader extends BaseIOHandler {
             String[] inputRowString = sc.nextLine().split(",");
             List inputRow = new ArrayList();
 
-            // Add X
+            // Add X (Input Neuron Layer Values)
             for (int i = 0; i < inputRowString.length - 1; i++) {
                 inputRow.add(Double.parseDouble(inputRowString[i].replace("\uFEFF","")));
             }
 
-            // Add Y
+            // Add Y (Output Neuron Layer Desired Values)
             inputRow.add(inputRowString[inputRowString.length - 1]);
 
             input.add(inputRow);
