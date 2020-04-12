@@ -54,7 +54,7 @@ public class InputReader extends BaseIOHandler {
         return input;
     }
 
-    public List<List<Double>> readOutput() {
+    public List<List<Double>> readDoubleOutput() {
 
         Scanner sc = getScanner();
 
@@ -67,6 +67,26 @@ public class InputReader extends BaseIOHandler {
 
             // Add Y (Output Neuron Layer Desired Values)
             outputRow.add(Double.parseDouble(inputRowString[inputRowString.length - 1]));
+            input.add(outputRow);
+        }
+
+        sc.close();
+        return input;
+    }
+
+    public List<List<Character>> readCharOutput() {
+
+        Scanner sc = getScanner();
+
+        List<List<Character>> input = new ArrayList<>();
+
+        while(sc.hasNextLine()) {
+            List outputRow = new ArrayList();
+
+            String[] inputRowString = sc.nextLine().split(",");
+
+            // Add Y (Output Neuron Layer Desired Values)
+            outputRow.add(inputRowString[inputRowString.length - 1].toCharArray()[0]);
             input.add(outputRow);
         }
 

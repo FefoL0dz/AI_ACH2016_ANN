@@ -34,7 +34,7 @@ public class DependencyInjector {
 
     public DependencyInjector(double learningRate, int epochNumber, String functionTag, int hiddenLayerSize, String fileDependency) {
         List<List<Double>> input = new InputReader(fileDependency).readInput();
-        List<List<Double>> output = new InputReader(fileDependency).readOutput();
+        List<List<Double>> output = new InputReader(fileDependency).readDoubleOutput();
 
         Double[][] inputs = DoubleConverter.doubleFromLists(input);
         Double[][] outputs = DoubleConverter.doubleFromLists(output);;
