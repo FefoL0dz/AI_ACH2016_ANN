@@ -2,9 +2,11 @@ package com.company.tools.IO.input;
 
 import com.company.tools.IO.BaseIOHandler;
 import com.company.tools.IO.FileURIComponents;
+import com.company.utils.exception.UnableToReadFileException;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
@@ -24,9 +26,12 @@ public class InputReader extends BaseIOHandler {
         super(FileURIComponents.INPUT_FOLDER_NAME + "\\" + fileName, fileExtension);
     }
 
-    public List<List<Double>> readInput() throws FileNotFoundException {
+    public InputReader(String fileName) {
+        super(FileURIComponents.INPUT_FOLDER_NAME + "\\" + fileName);
+    }
 
-        Scanner sc = new Scanner(new File(path + fileExtension));
+    public List<List<Double>> readInput() {
+        Scanner sc = getScanner();
 
         List<List<Double>> input = new ArrayList<List<Double>>();
 
@@ -47,9 +52,9 @@ public class InputReader extends BaseIOHandler {
         return input;
     }
 
-    public List<Double> readOutput() throws FileNotFoundException {
+    public List<Double> readOutput() {
 
-        Scanner sc = new Scanner(new File(path + fileExtension));
+        Scanner sc = getScanner();
 
         List<Double> input = new ArrayList<>();
 
@@ -63,5 +68,17 @@ public class InputReader extends BaseIOHandler {
         sc.close();
 
         return input;
+    }
+
+    public Scanner getScanner() {
+        Scanner sc;
+        try {
+            sc = new Scanner(new File(path + fileExtension));
+        } catch (IOException e) {
+            throw new UnableToReadFileException();
+        } catch (Exception e) {
+            throw e;
+        }
+        return sc;
     }
 }

@@ -1,12 +1,16 @@
 package com.company.multiLayerPerceptron.di;
 
 import com.company.multiLayerPerceptron.ANN;
+import com.company.tools.IO.input.InputReader;
 import com.company.tools.generator.MatrixGenerator;
 import com.company.tools.generator.VectorGenerator;
 import com.company.tools.math.IFunction;
 import com.company.tools.math.Sigmoid;
 import com.company.tools.math.Tanh;
+import com.company.utils.doubleConverter.DoubleConverter;
 import com.company.utils.string.StringUtils;
+
+import java.util.List;
 
 /**
  Created by: Felipe Lodes in 07/04/2020.
@@ -22,6 +26,33 @@ public class DependencyInjector {
     DependencyInjector.Builder builder;
 
     private final double bias = 1;
+
+    public DependencyInjector(double learningRate, int epochNumber, String functionTag, String fileDependency) {
+        List<List<Double>> inputs = new InputReader(fileDependency).readInput();
+        List<Double> outputs = new InputReader(fileDependency).readOutput();
+
+       // createInputInstances(DoubleConverter.doubleFromLists(inputs));
+       // createOutputInstances(DoubleConverter.toDouble(DoubleConverter.toDouble(outputs)));
+
+//        constructBuilder(inputLayerNeuronNumber,
+//                outputLayerNeuronNumber,
+//                hiddenLayerNeuronNumber,
+//                learningRate,
+//                epochNumber,
+//                injectFunction(functionTag),
+//                inputXVector,
+//                expectedYvector,
+//                hiddenWeightMatrix,
+//                outputWeightMatrix);
+    }
+
+    private void createInputInstances(Double[][] inputs) {
+
+    }
+
+    private void createOutputInstances(Double[] output) {
+
+    }
 
     public static DependencyInjector createInstance(int inputLayerNeuronNumber,
                                                     int outputLayerNeuronNumber,
@@ -137,6 +168,10 @@ public class DependencyInjector {
                 expectedYvector,
                 hiddenWeightMatrix,
                 outputWeightMatrix);
+    }
+
+    public static DependencyInjector createInstance(double learningRate, int epochNumber, String functionTag, String fileDependency) {
+        return new DependencyInjector(learningRate, epochNumber, functionTag, fileDependency);
     }
 
     private void constructBuilder(int inputLayerNeuronNumber,

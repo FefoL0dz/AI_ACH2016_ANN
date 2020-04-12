@@ -2,7 +2,6 @@ package com.company;
 
 import com.company.multiLayerPerceptron.ANN;
 import com.company.multiLayerPerceptron.di.DependencyInjector;
-import com.company.utils.doubleConverter.DoubleConverter;
 import com.company.tools.math.Sigmoid;
 
 /**
@@ -26,38 +25,24 @@ public class Main {
         //TODO: Create a config file to centralize settings/preferences resources
 
         String functionTag = Sigmoid.TAG;
-
-        int inputLayerNeuronNumber = 3;
-        int outputLayerNeuronNumber = 2;
-        int hiddenLayerNeuronNumber = 4;
-
         double learningRate = 0.5;
         int epochNumber = 100;
+        String fileDependency = "problemAND.csv";
 
-        double[] xInput = {1, 1, 1}; //TODO: Solve this problem - needs to pass bias as parameter
-        double[] yExpected = {1, 0};
+//        int inputLayerNeuronNumber = 3;
+//        int outputLayerNeuronNumber = 2;
+//        int hiddenLayerNeuronNumber = 4;
+//
+//        double[] xInput = {1, 1, 1}; //TODO: Solve this problem - needs to pass bias as parameter
+//        double[] yExpected = {1, 0};
 
-        getInstance().run(inputLayerNeuronNumber, outputLayerNeuronNumber, hiddenLayerNeuronNumber, learningRate, epochNumber, functionTag, DoubleConverter.toDouble(xInput), DoubleConverter.toDouble(yExpected));
+        getInstance().run(learningRate, epochNumber, functionTag, fileDependency);
     }
 
-    private void run(int inputLayerNeuronNumber, int outputLayerNeuronNumber, int hiddenLayerNeuronNumber, double learningRate, int epochNumber, String functionTag, Double[] xInput, Double[] yExpected) {
+    public void run (double learningRate, int epochNumber, String functionTag, String fileName) {
         neuralNetwork = DependencyInjector
-                .createInstance(inputLayerNeuronNumber, outputLayerNeuronNumber, hiddenLayerNeuronNumber,
-                        learningRate, epochNumber, functionTag, xInput, yExpected).inject();
+                .createInstance(learningRate, epochNumber, functionTag, fileName).inject();
 
         neuralNetwork.start();
-    }
-
-    public void run (int inputLayerNeuronNumber,
-                         int outputLayerNeuronNumber,
-                         int hiddenLayerNeuronNumber,
-                         double learningRate,
-                         int epochNumber,
-                         String functionTag) {
-            neuralNetwork = DependencyInjector
-                    .createInstance(inputLayerNeuronNumber, outputLayerNeuronNumber, hiddenLayerNeuronNumber,
-                    learningRate, epochNumber, functionTag).inject();
-
-            neuralNetwork.start();
     }
 }

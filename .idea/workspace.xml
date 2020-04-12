@@ -2,7 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4446b4f-cf2e-41c2-b099-dca7f48763dd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/company/tools/IO/BaseIOHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tools/IO/BaseIOHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/utils/exception/UnableToReadFileException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/META-INF/ACH2016.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/IO/BaseIOHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/IO/BaseIOHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/IO/FileURIComponents.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/IO/FileURIComponents.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/IO/input/InputReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/IO/input/InputReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/IO/input/MainInputTester.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/IO/input/MainInputTester.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/utils/doubleConverter/DoubleConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ACH2016/com/company/utils/doubleConverter/DoubleConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/di/DependencyInjector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/di/DependencyInjector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/tools/IO/input/InputReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tools/IO/input/InputReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/tools/IO/output/OutputPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tools/IO/output/OutputPrinter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/utils/doubleConverter/DoubleConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/utils/doubleConverter/DoubleConverter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +57,7 @@
       <recent name="C:\Users\Felipe Lodes\Desktop\AI_ACH2016_ANN\src\com\company\utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainInputTester">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.company.Main" />
       <module name="ACH2016" />
@@ -131,46 +144,46 @@
     </state>
     <state x="458" y="126" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1586650206255" />
     <state x="488" y="155" width="424" height="482" key="FileChooserDialogImpl/45.27.1321.741@45.27.1321.741" timestamp="1586226792760" />
-    <state width="1323" height="202" key="GridCell.Tab.0.bottom" timestamp="1586660741458">
+    <state width="1323" height="202" key="GridCell.Tab.0.bottom" timestamp="1586664093418">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="202" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586660741458" />
-    <state width="1323" height="202" key="GridCell.Tab.0.center" timestamp="1586660741458">
+    <state width="1323" height="202" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586664093418" />
+    <state width="1323" height="202" key="GridCell.Tab.0.center" timestamp="1586664093417">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="202" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586660741458" />
-    <state width="1323" height="202" key="GridCell.Tab.0.left" timestamp="1586660741458">
+    <state width="1323" height="202" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586664093417" />
+    <state width="1323" height="202" key="GridCell.Tab.0.left" timestamp="1586664093417">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="202" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586660741458" />
-    <state width="1323" height="202" key="GridCell.Tab.0.right" timestamp="1586660741458">
+    <state width="1323" height="202" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586664093417" />
+    <state width="1323" height="202" key="GridCell.Tab.0.right" timestamp="1586664093417">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="202" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586660741458" />
-    <state width="1323" height="202" key="GridCell.Tab.1.bottom" timestamp="1586660741304">
+    <state width="1323" height="202" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586664093417" />
+    <state width="1323" height="202" key="GridCell.Tab.1.bottom" timestamp="1586664093197">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="202" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586660741304" />
-    <state width="1323" height="202" key="GridCell.Tab.1.center" timestamp="1586660741303">
+    <state width="1323" height="202" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586664093197" />
+    <state width="1323" height="202" key="GridCell.Tab.1.center" timestamp="1586664093197">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="202" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1586660741303" />
-    <state width="1323" height="202" key="GridCell.Tab.1.left" timestamp="1586660741303">
+    <state width="1323" height="202" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1586664093197" />
+    <state width="1323" height="202" key="GridCell.Tab.1.left" timestamp="1586664093197">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="202" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1586660741303" />
-    <state width="1323" height="202" key="GridCell.Tab.1.right" timestamp="1586660741304">
+    <state width="1323" height="202" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1586664093197" />
+    <state width="1323" height="202" key="GridCell.Tab.1.right" timestamp="1586664093197">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="202" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1586660741304" />
+    <state width="1323" height="202" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1586664093197" />
     <state x="163" y="0" key="SettingsEditor" timestamp="1586647447611">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1586647447611" />
-    <state x="384" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1586557003578">
+    <state x="384" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1586663904549">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="384" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1586557003578" />
+    <state x="384" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1586663904549" />
     <state x="260" y="100" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1586643066085">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -185,7 +198,7 @@
       <breakpoints>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java</url>
-          <line>148</line>
+          <line>144</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint type="java-line">

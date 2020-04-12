@@ -103,10 +103,6 @@ public class ANN {
         }
     }
 
-//    public void start() {
-//        run();
-//    }
-
     private void run() {
         while (!isTerminated()) {
             feedForward();

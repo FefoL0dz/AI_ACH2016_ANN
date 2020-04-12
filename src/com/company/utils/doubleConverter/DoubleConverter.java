@@ -21,7 +21,7 @@ public class DoubleConverter {
 
         int i = 0;
         while(iterator.hasNext()) {
-            matrix[i] = listToArray((List<Double>)iterator.next());
+            matrix[i] = toDouble((List<Double>)iterator.next());
             i++;
         }
         //here we could use Double object instead primitive double to avoid calling toDouble method (less execution processing)
@@ -44,7 +44,7 @@ public class DoubleConverter {
         return result;
     }
 
-    public static double[] listToArray(List<Double> list) {
+    public static double[] toDouble(List<Double> list) {
         double[] ret = new double[list.size()];
         Iterator<Double> iterator = list.iterator();
         for (int i = 0; i < ret.length; i++) {

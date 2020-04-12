@@ -14,7 +14,7 @@ import com.company.tools.IO.FileURIComponents;
 
 public class OutputPrinter extends BaseIOHandler {
 
-    public OutputPrinter(String fileExtension) {
-        super(FileURIComponents.OUTPUT_FOLDER_NAME, fileExtension);
+    public OutputPrinter(String fileName, String fileExtension) {
+        super(FileURIComponents.OUTPUT_FOLDER_NAME + "\\" + fileName, fileExtension);
     }
 }
