@@ -3,7 +3,9 @@ package com.company;
 import com.company.multiLayerPerceptron.ANN;
 import com.company.multiLayerPerceptron.di.DependencyInjector;
 import com.company.tools.IO.Printer;
+import com.company.tools.IO.input.InputReader;
 import com.company.tools.math.Sigmoid;
+import com.company.utils.doubleConverter.DoubleConverter;
 
 /**
   Created by: Felipe Lodes in 07/04/2020.
@@ -25,14 +27,26 @@ public class Main {
     public static void main(String[] args) {
 
         String functionTag = Sigmoid.TAG;
-        double learningRate = 0.66;
-        int epochNumber = 3000;
-        int hiddenLayerSize = 4;
-        String fileDependency = "problemNOT.csv";
+        double learningRate = 0.6;
+        int epochNumber = 300000;
+        int hiddenLayerSize = 12;
+        String fileDependency = "caracteres-limpo.csv";
+        String fileTest = "caracteres-ruido.csv";
 
         ANN mlp = getInstance().train(learningRate, epochNumber, functionTag, hiddenLayerSize, fileDependency);
         //ANN mlp = getInstance().trainWithHardCodedDataSet(learningRate, epochNumber, functionTag, hiddenLayerSize);
-        runTests(mlp);
+        runTests(mlp, fileTest);
+    }
+
+    private static void runTests(ANN mlp, final String fileTest) {
+        double threshold = 0.5;
+        Double[][] test = DoubleConverter.doubleFromLists(new InputReader(fileTest).readInput());
+        for (int i = 0; i < test.length; i++) {
+            Double[] output = mlp.predict(test[i]);
+           // Printer.printVector(output);
+            Printer.printCharOutput(output);
+        }
+        System.out.println("---------------------------------------------------------------------------");
     }
 
     private static void runTests(ANN mlp) {

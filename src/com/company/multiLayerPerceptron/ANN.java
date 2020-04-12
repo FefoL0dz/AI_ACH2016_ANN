@@ -142,7 +142,7 @@ public class ANN {
 
     private void setNewTrainingInstance(int index) {
         this.inputXVector = inputDataSet[index];
-        this.expectedYvector = outputDataSet[index];
+        this.expectedYvector = outputDataSet[index % outputDataSet.length];
     }
 
     private void updateWeightMatrices() {

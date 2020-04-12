@@ -8,7 +8,7 @@ public class MainInputTester {
     public static void main(String[] args) {
         InputReader inputReader = new InputReader("caracteres-limpo.csv");
         List<List<Double>> input = inputReader.readInput();
-        List<List<Character>> output = inputReader.readCharOutput();
+        List<List<Double>> output = inputReader.readOutput();
         //List<List<Double>> output = inputReader.readDoubleOutput();
 
         Iterator iteratorIn = input.iterator();

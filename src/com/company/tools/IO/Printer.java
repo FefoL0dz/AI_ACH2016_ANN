@@ -36,4 +36,29 @@ public class Printer {
         println((vector[i] > threshold ? 1.0 : 0.0) + "]");
     }
 
+    public static void printOutput(Double[] vector) {
+        print("[");
+        int i = 0;
+        for (; i < vector.length - 1; i++)
+            print(vector[i] + ", ");
+        println(vector[i] + "]");
+    }
+
+    public static void printCharOutput(Double[] vector) {
+        int indexMaxElement = 0;
+        for (int i = 0; i < vector.length; i++) {
+            if (vector[i] > vector[indexMaxElement])
+                indexMaxElement = i;
+        }
+        switch (indexMaxElement) {
+            case 0: println("A"); break;
+            case 1: println("B"); break;
+            case 2: println("C"); break;
+            case 3: println("D"); break;
+            case 4: println("E"); break;
+            case 5: println("J"); break;
+            case 6: println("K"); break;
+            default: println("X"); break;
+        }
+    }
 }

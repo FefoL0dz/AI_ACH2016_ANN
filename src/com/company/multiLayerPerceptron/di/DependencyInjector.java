@@ -34,10 +34,10 @@ public class DependencyInjector {
 
     public DependencyInjector(double learningRate, int epochNumber, String functionTag, int hiddenLayerSize, String fileDependency) {
         List<List<Double>> input = new InputReader(fileDependency).readInput();
-        List<List<Double>> output = new InputReader(fileDependency).readDoubleOutput();
+        List<List<Double>> output = new InputReader(fileDependency).readOutput();
 
         Double[][] inputs = DoubleConverter.doubleFromLists(input);
-        Double[][] outputs = DoubleConverter.doubleFromLists(output);;
+        Double[][] outputs = DoubleConverter.doubleFromLists(output);
 
         Double[][] hiddenWeightMatrix = new Double[inputs[0].length][hiddenLayerSize]; //{{-0.1, 0.1, -0.1}, {-0.1, 0.1, 0.1}, {0.1, -0.1, -0.1}};
         Double[][] outputWeightMatrix = new Double[hiddenLayerSize][outputs[0].length]; //{{-0.1, 0.1, 0.0, 0.1}, {0.1, -0.1, 0.1, -0.1}};

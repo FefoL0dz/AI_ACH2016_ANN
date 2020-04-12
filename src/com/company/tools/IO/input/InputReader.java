@@ -6,10 +6,7 @@ import com.company.utils.exception.UnableToReadFileException;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.LinkedHashSet;
-import java.util.Scanner;
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  Created by: Felipe Lodes in 07/04/2020.
@@ -55,7 +52,34 @@ public class InputReader extends BaseIOHandler {
         return input;
     }
 
-    public List<List<Double>> readDoubleOutput() {
+    public List<List<Double>> readOutput() {
+        List<List<Double>> input = new ArrayList<>();
+        try {
+           input = readDoubleOutput();
+        } catch(NumberFormatException e) {
+            input = getClassificationOutput(readCharOutput());
+        } catch (Exception e) {
+            throw e;
+        }
+        return input;
+    }
+
+    private List<List<Double>> getClassificationOutput(List<List<Character>> outputCharList) {
+        List<List<Double>> classificationOutput = new ArrayList<>();
+        int listSize = outputCharList.size();
+        for (int i = 0; i < listSize; i++) {
+           Double[] identificationVector = new Double[listSize];
+            for (int j = 0; j < listSize; j++) {
+                Double flag = (i == j) ? 1.0 : 0.0;
+                identificationVector[j] = flag;
+            }
+            classificationOutput.add(Arrays.asList(identificationVector));
+        }
+
+        return classificationOutput;
+    }
+
+    private List<List<Double>> readDoubleOutput() {
 
         Scanner sc = getScanner();
 
@@ -75,7 +99,7 @@ public class InputReader extends BaseIOHandler {
         return input;
     }
 
-    public List<List<Character>> readCharOutput() {
+    private List<List<Character>> readCharOutput() {
 
         Scanner sc = getScanner();
 
@@ -100,7 +124,7 @@ public class InputReader extends BaseIOHandler {
         return input;
     }
 
-    public Scanner getScanner() {
+    private Scanner getScanner() {
         Scanner sc;
         try {
             sc = new Scanner(new File(path + fileExtension));
