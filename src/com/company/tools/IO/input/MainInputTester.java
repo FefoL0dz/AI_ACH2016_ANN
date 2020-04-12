@@ -10,12 +10,12 @@ public class MainInputTester {
 
     public static void main(String[] args) throws FileNotFoundException {
         InputReader inputReader = new InputReader("com/company/tools/IO/input/inputFiles/problemAND", ".csv");
-        List<List<Double>> input = inputReader.read();
+        String[][] input = inputReader.read();
 
-        Iterator iterator = input.iterator();
-
-        while(iterator.hasNext()) {
-            System.out.println(iterator.next());
+        for (int i = 0; i < input.length; i++) {
+            for (int j = 0; j < input[i].length; j++) {
+                System.out.println(input[i][j]);
+            }
         }
     }
 }

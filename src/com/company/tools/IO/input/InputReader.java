@@ -21,28 +21,25 @@ public class InputReader extends BaseIOHandler {
         super(path, fileExtension);
     }
 
-    public List<List<Double>> read() throws FileNotFoundException {
+    public String[][] read() throws FileNotFoundException {
         Scanner sc = new Scanner(new File(path + fileExtension));
 
-        List<List<Double>> input = new ArrayList<List<Double>>();
+        List<String[]> input = new ArrayList<String[]>();
+        int inputRowStringLength = 0;
 
         while(sc.hasNextLine()) {
             String[] inputRowString = sc.nextLine().split(",");
-            List inputRow = new ArrayList();
+            inputRowStringLength = inputRowString.length;
+            inputRowString[0] = inputRowString[0].replace("\uFEFF","");
 
-            // Add X
-            for (int i = 0; i < inputRowString.length - 1; i++) {
-                inputRow.add(Double.parseDouble(inputRowString[i].replace("\uFEFF","")));
-            }
-
-            // Add Y
-            inputRow.add(inputRowString[inputRowString.length - 1]);
-
-            input.add(inputRow);
+            input.add(inputRowString);
         }
         
         sc.close();
 
-        return input;
+        String[][] inputArray = new String[input.size()][inputRowStringLength];
+        input.toArray(inputArray);
+
+        return inputArray;
     }
 }
