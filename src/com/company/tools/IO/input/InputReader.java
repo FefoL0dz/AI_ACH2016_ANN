@@ -6,6 +6,7 @@ import com.company.utils.exception.UnableToReadFileException;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.LinkedHashSet;
 import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
@@ -89,6 +90,11 @@ public class InputReader extends BaseIOHandler {
             outputRow.add(inputRowString[inputRowString.length - 1].toCharArray()[0]);
             input.add(outputRow);
         }
+
+        //Here we use hash set to remove duplicates
+        LinkedHashSet<List<Character>> hashSet = new LinkedHashSet<>(input);
+        input.clear();
+        input.addAll(hashSet);
 
         sc.close();
         return input;
