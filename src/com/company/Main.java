@@ -36,13 +36,24 @@ public class Main {
 //        double[] xInput = {1, 1, 1}; //TODO: Solve this problem - needs to pass bias as parameter
 //        double[] yExpected = {1, 0};
 
-        getInstance().run(learningRate, epochNumber, functionTag, fileDependency);
+        getInstance().train(learningRate, epochNumber, functionTag, fileDependency);
     }
 
-    public void run (double learningRate, int epochNumber, String functionTag, String fileName) {
-        neuralNetwork = DependencyInjector
-                .createInstance(learningRate, epochNumber, functionTag, fileName).inject();
+//    public void run (double learningRate, int epochNumber, String functionTag, String fileName) {
+//        neuralNetwork = DependencyInjector
+//                .createInstance(learningRate, epochNumber, functionTag, fileName).inject();
+//
+//        neuralNetwork.train();
+//    }
 
-        neuralNetwork.start();
+    public void train(double learningRate, int epochNumber, String functionTag, String fileName) {
+        double[][] inputs = {{1,0,0},{1,0,1},{1,1,0},{1,1,1}};
+        double[][] outputs = {{0},{0},{0},{1}};
+        neuralNetwork = DependencyInjector
+                .createInstance(learningRate, epochNumber, functionTag, 4, inputs, outputs).inject();
+        neuralNetwork.startTraining();
+
+        double[] test = {0,1};
+        neuralNetwork.predict(test);
     }
 }

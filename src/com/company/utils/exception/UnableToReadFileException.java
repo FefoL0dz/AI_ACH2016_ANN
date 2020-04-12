@@ -16,4 +16,8 @@ public class UnableToReadFileException extends RuntimeException {
     public UnableToReadFileException() {
         super(message);
     }
+
+    public UnableToReadFileException(String errorMessage) {
+        super(message + " " + errorMessage);
+    }
 }

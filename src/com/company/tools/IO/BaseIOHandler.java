@@ -10,9 +10,9 @@ package com.company.tools.IO;
 
 public abstract class BaseIOHandler {
 
-    protected String path;
+    protected String path = "";
     
-    protected String fileExtension;
+    protected String fileExtension = "";
 
     public BaseIOHandler(String path, String fileExtension) {
         this.path = FileURIComponents.PROJECT_ROOT_FOLDER + "\\"+ path;

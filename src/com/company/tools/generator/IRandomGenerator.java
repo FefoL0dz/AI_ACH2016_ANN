@@ -18,4 +18,8 @@ public interface IRandomGenerator<E, T> {
     default Double generateDouble() {
         return new Random().nextDouble();
     }
+
+    default int generateInt() {
+        return new Random().nextInt();
+    }
 }

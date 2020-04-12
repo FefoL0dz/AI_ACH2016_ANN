@@ -1,6 +1,8 @@
 package com.company.multiLayerPerceptron;
 
 import com.company.tools.IO.log.Logger;
+import com.company.tools.generator.IRandomGenerator;
+import com.company.tools.generator.IntGenerator;
 import com.company.tools.graph.Plotter;
 import com.company.tools.math.IFunction;
 import com.company.utils.doubleConverter.DoubleConverter;
@@ -36,8 +38,11 @@ public class ANN {
 
     IFunction<Double, Double> activationFunction;
 
+    private Double inputDataSet[][];
+    private Double outputDataSet[][];
+
     private Double inputXVector[];
-    private final Double expectedYvector[];
+    private Double expectedYvector[];
     private Double obtainedYVector[];
     private Double hiddenZVector[];
 
@@ -52,8 +57,8 @@ public class ANN {
                double learningRate,
                int epochMaxNumber,
                IFunction<Double, Double> activationFunction,
-               Double[] inputXVector,
-               Double[] expectedYvector,
+               Double[][] inputXVectors,
+               Double[][] expectedYVectors,
                Double[][] hiddenWeightMatrix,
                Double[][] outputWeightMatrix) {
         this.inputLayerNeuronNumber = inputLayerNeuronNumber;
@@ -64,8 +69,12 @@ public class ANN {
         this.epochMaxNumber = epochMaxNumber;
         this.activationFunction = activationFunction;
         this.currentEpoch = 0;
-        this.inputXVector = inputXVector;
-        this.expectedYvector = expectedYvector;
+
+        this.inputDataSet = inputXVectors;
+        this.outputDataSet = expectedYVectors;
+
+        this.inputXVector = inputXVectors[0];
+        this.expectedYvector = expectedYVectors[0];
 
         this.hiddenWeightMatrix = hiddenWeightMatrix;
         this.outputWeightMatrix = outputWeightMatrix;
@@ -90,10 +99,10 @@ public class ANN {
         this.currentEpoch++;
     }
 
-    public void start() {
+    public void train() {
         int executionFinishStatus = ExitStatus.FINISHED_SUCCESSFULLY;
         try {
-            run();
+            startTraining();
         } catch(Exception e) {
             executionFinishStatus = ExitStatus.FINISHED_WITH_ERROR;
             GlobalExceptionHandler.handle(this, e);
@@ -103,14 +112,29 @@ public class ANN {
         }
     }
 
-    private void run() {
+    public void predict(double[] input) {
+    }
+
+    public void startTraining() {
         while (!isTerminated()) {
             feedForward();
             backPropagation();
             updateWeightMatrices();
             updateCurrentEpoch();
+            changeTrainingData();
             //logIteration();
         }
+    }
+
+    private void changeTrainingData() {
+        int dataSetInstancesNumber = inputDataSet.length;
+        int randomIndex = new IntGenerator().generate(dataSetInstancesNumber);
+        setNewTrainingInstance(Math.abs(randomIndex));
+    }
+
+    private void setNewTrainingInstance(int index) {
+        this.inputXVector = inputDataSet[index];
+        this.expectedYvector = outputDataSet[index];
     }
 
     private void updateWeightMatrices() {
