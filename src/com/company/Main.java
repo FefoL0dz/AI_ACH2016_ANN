@@ -27,19 +27,20 @@ public class Main {
         double learningRate = 0.66;
         int epochNumber = 30000;
         int hiddenLayerSize = 3;
-        String fileDependency = "problemAND.csv";
+        String fileDependency = "problemXOR.csv";
 
         ANN mlp = getInstance().train(learningRate, epochNumber, functionTag, hiddenLayerSize, fileDependency);
+        //ANN mlp = getInstance().trainWithHardCodedDataSet(learningRate, epochNumber, functionTag, hiddenLayerSize);
         runTests(mlp);
-        ANN mlp1 = getInstance().train(learningRate, epochNumber, functionTag, hiddenLayerSize);
-        runTests(mlp1);
     }
 
     private static void runTests(ANN mlp) {
+        //Boolean Table
         Double[] test1 = {1.0, -1.0, -1.0};
         Double[] test2 = {1.0, 1.0, -1.0};
         Double[] test3 = {1.0, -1.0, 1.0};
         Double[] test4 = {1.0, 1.0, 1.0};
+
         System.out.println(mlp.predict(test1));
         System.out.println(mlp.predict(test2));
         System.out.println(mlp.predict(test3));
@@ -54,7 +55,7 @@ public class Main {
         return neuralNetwork;
     }
 
-    public ANN train(double learningRate, int epochNumber, String functionTag, int hiddenLayerSize) {
+    public ANN trainWithHardCodedDataSet(double learningRate, int epochNumber, String functionTag, int hiddenLayerSize) {
         double[][] inputs = {{1,-1,-1},{1,-1,1},{1,1,-1},{1,1,1}};
         double[][] outputs = {{0},{0},{0},{1}};
         neuralNetwork = DependencyInjector

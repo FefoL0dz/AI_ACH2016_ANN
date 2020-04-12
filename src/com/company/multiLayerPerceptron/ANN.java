@@ -105,16 +105,16 @@ public class ANN {
         } catch(Exception e) {
             executionFinishStatus = ExitStatus.FINISHED_WITH_ERROR;
             GlobalExceptionHandler.handle(this, e);
+             System.exit(executionFinishStatus);
         } finally {
             finishExecution();
-           // System.exit(executionFinishStatus);
         }
     }
 
     public Double predict(Double[] input) {
         this.inputXVector = input;
         feedForward();
-        return this.obtainedYVector[0];
+        return this.obtainedYVector[0] > 0.5 ? 1.0 : 0.0;
     }
 
     private void startTraining() {
