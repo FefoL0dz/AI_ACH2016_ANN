@@ -11,19 +11,16 @@ package com.company.tools.IO;
 public abstract class BaseIOHandler {
 
     protected String path;
-
-    public static final String PROJECT_ROOT_FOLDER = "C:\\Users\\Felipe Lodes\\Desktop\\AI_ACH2016_ANN\\resources";
-    //public static final String PROJECT_ROOT_FOLDER = "resources";
-
+    
     protected String fileExtension;
 
     public BaseIOHandler(String path, String fileExtension) {
-        this.path = PROJECT_ROOT_FOLDER + "\\"+ path;
+        this.path = FileURIComponents.PROJECT_ROOT_FOLDER + "\\"+ path;
         this.fileExtension = fileExtension;
     }
 
     public BaseIOHandler(String path) {
-        this.path = PROJECT_ROOT_FOLDER + "\\"+ path;
+        this.path = FileURIComponents.PROJECT_ROOT_FOLDER + "\\"+ path;
     }
 }
 
