@@ -5,7 +5,6 @@ import com.company.tools.IO.FileURIComponents;
 import com.company.utils.exception.UnableToReadFileException;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.List;
@@ -39,6 +38,9 @@ public class InputReader extends BaseIOHandler {
             String[] inputRowString = sc.nextLine().split(",");
             List inputRow = new ArrayList();
 
+            //Add bias when reading input
+            inputRow.add(Double.parseDouble("1"));
+
             // Add X (Input Neuron Layer Values)
             for (int i = 0; i < inputRowString.length - 1; i++) {
                 inputRow.add(Double.parseDouble(inputRowString[i].replace("\uFEFF","")));
@@ -52,21 +54,23 @@ public class InputReader extends BaseIOHandler {
         return input;
     }
 
-    public List<Double> readOutput() {
+    public List<List<Double>> readOutput() {
 
         Scanner sc = getScanner();
 
-        List<Double> input = new ArrayList<>();
+        List<List<Double>> input = new ArrayList<>();
 
         while(sc.hasNextLine()) {
+            List outputRow = new ArrayList();
+
             String[] inputRowString = sc.nextLine().split(",");
 
             // Add Y (Output Neuron Layer Desired Values)
-            input.add(Double.parseDouble(inputRowString[inputRowString.length - 1]));
+            outputRow.add(Double.parseDouble(inputRowString[inputRowString.length - 1]));
+            input.add(outputRow);
         }
 
         sc.close();
-
         return input;
     }
 

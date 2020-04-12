@@ -1,7 +1,6 @@
 package com.company.multiLayerPerceptron;
 
 import com.company.tools.IO.log.Logger;
-import com.company.tools.generator.IRandomGenerator;
 import com.company.tools.generator.IntGenerator;
 import com.company.tools.graph.Plotter;
 import com.company.tools.math.IFunction;
@@ -108,14 +107,17 @@ public class ANN {
             GlobalExceptionHandler.handle(this, e);
         } finally {
             finishExecution();
-            System.exit(executionFinishStatus);
+           // System.exit(executionFinishStatus);
         }
     }
 
-    public void predict(double[] input) {
+    public Double predict(Double[] input) {
+        this.inputXVector = input;
+        feedForward();
+        return this.obtainedYVector[0];
     }
 
-    public void startTraining() {
+    private void startTraining() {
         while (!isTerminated()) {
             feedForward();
             backPropagation();
