@@ -26,4 +26,14 @@ public class Printer {
             print(vector[i] + ", ");
         println(vector[i] + "]");
     }
+
+    //Not a util method
+    public static void printOutput(Double[] vector, double threshold) {
+        print("[");
+        int i = 0;
+        for (; i < vector.length - 1; i++)
+            print((vector[i] > threshold ? 1.0 : 0.0) + ", ");
+        println((vector[i] > threshold ? 1.0 : 0.0) + "]");
+    }
+
 }

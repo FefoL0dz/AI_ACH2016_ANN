@@ -111,7 +111,13 @@ public class ANN {
         }
     }
 
-    public Double predict(Double[] input) {
+    public Double[] predict(Double[] input) {
+        this.inputXVector = input;
+        feedForward();
+        return this.obtainedYVector;
+    }
+
+    public Double predictOneOutputNeuron(Double[] input) {
         this.inputXVector = input;
         feedForward();
         return this.obtainedYVector[0] > 0.5 ? 1.0 : 0.0;
