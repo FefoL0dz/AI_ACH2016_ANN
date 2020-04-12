@@ -13,11 +13,20 @@ import java.util.List;
  **/
 
 public class DoubleConverter {
-//
-//    public static Double[][][] cubeFromLists(List<List<Double>> list) {
-//        int numberOfMatrix = list.size();
-//
-//    }
+
+    public static Double[][] doubleFromLists(List<List<Double>> list) {
+        double[][] matrix = new double[list.size()][];
+
+        Iterator iterator = list.iterator();
+
+        int i = 0;
+        while(iterator.hasNext()) {
+            matrix[i] = listToArray((List<Double>)iterator.next());
+            i++;
+        }
+        //here we could use Double object instead primitive double to avoid calling toDouble method (less execution processing)
+        return toDouble(matrix);
+    }
 
     public static Double[][] toDouble(double[][] matrix) {
         Double[][] result = new Double[matrix.length][matrix[0].length];

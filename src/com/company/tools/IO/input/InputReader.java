@@ -24,7 +24,7 @@ public class InputReader extends BaseIOHandler {
         super(FileURIComponents.INPUT_FOLDER_NAME + "\\" + fileName, fileExtension);
     }
 
-    public List<List<Double>> read() throws FileNotFoundException {
+    public List<List<Double>> readInput() throws FileNotFoundException {
 
         Scanner sc = new Scanner(new File(path + fileExtension));
 
@@ -39,12 +39,27 @@ public class InputReader extends BaseIOHandler {
                 inputRow.add(Double.parseDouble(inputRowString[i].replace("\uFEFF","")));
             }
 
-            // Add Y (Output Neuron Layer Desired Values)
-            inputRow.add(inputRowString[inputRowString.length - 1]);
-
             input.add(inputRow);
         }
         
+        sc.close();
+
+        return input;
+    }
+
+    public List<Double> readOutput() throws FileNotFoundException {
+
+        Scanner sc = new Scanner(new File(path + fileExtension));
+
+        List<Double> input = new ArrayList<>();
+
+        while(sc.hasNextLine()) {
+            String[] inputRowString = sc.nextLine().split(",");
+
+            // Add Y (Output Neuron Layer Desired Values)
+            input.add(Double.parseDouble(inputRowString[inputRowString.length - 1]));
+        }
+
         sc.close();
 
         return input;
