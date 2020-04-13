@@ -23,7 +23,7 @@ public class FolderUtils {
             boolean success = (new File(path)).mkdirs();
 
             if(!success)
-                throw new UnableToCreateFolderException();
+                throw new UnableToCreateFolderException(": " + path);
         }
     }
 

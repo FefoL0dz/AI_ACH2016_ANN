@@ -30,13 +30,19 @@ public class Main {
         double learningRate = 0.65;
         int epochNumber = 300000;
         int hiddenLayerSize = 9;
+
         String fileDependency = "caracteres-limpo.csv";
         String testFile = "caracteres-ruido.csv";
 
-        //ANN mlp = getInstance().trainWithHardCodedDataSet(learningRate, epochNumber, functionTag, hiddenLayerSize);
-
         ANN mlp = getInstance().train(learningRate, epochNumber, functionTag, hiddenLayerSize, fileDependency);
-        runTests(mlp, testFile);
+        run(mlp, testFile);
+    }
+
+    private static void run(ANN mlp, final String testFile) {
+        Double[][] input = DoubleConverter.doubleFromLists(new InputReader(testFile).readInput());
+        for (int i = 0; i < input.length; i++) {
+            Double[] output = mlp.predict(input[i]);
+        }
     }
 
     private static void runTests(ANN mlp, final String fileTest) {
@@ -75,7 +81,7 @@ public class Main {
         neuralNetwork.train();
         return neuralNetwork;
     }
-    
+
     public ANN trainWithHardCodedDataSet(double learningRate, int epochNumber, String functionTag, int hiddenLayerSize) {
         double[][] inputs = {{1,-1,-1},{1,-1,1},{1,1,-1},{1,1,1}};
         double[][] outputs = {{0},{0},{0},{1}};
