@@ -21,6 +21,7 @@ public class Logger {
     }
 
     public void logNeuralNetworkInfo(ANN neuralNetwork) {
+        createFolderIfNeeded();
         new OutputPrinter("MLP_initial_settings", FileURIComponents.TXT_EXT)
                 .printMLPInitialInformation(
                         neuralNetwork.getFunctionTag(),
@@ -33,6 +34,10 @@ public class Logger {
 
         new OutputPrinter("Initial_Weights", FileURIComponents.CSV_EXT)
                 .printWeights(neuralNetwork.getCurrentEpoch(), neuralNetwork.getHiddenWeightMatrix(), neuralNetwork.getOutputWeightMatrix());
+    }
+
+    private void createFolderIfNeeded() {
+        new OutputPrinter();
     }
 
     public void logIteration(ANN neuralNetwork) {

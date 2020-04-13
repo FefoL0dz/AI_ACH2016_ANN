@@ -4,17 +4,6 @@ public interface FileURIComponents {
     String TXT_EXT = ".txt";
     String CSV_EXT = ".csv";
 
-    String C_DIR = "C:";
-    String D_DIR = "D:";
-
-    String USERS = "Users";
-
-    //TODO: Improve this process getting project path automatically
-    String PROFILE_USER = "(YOUR_USER_HERE)";
-
-    String DESKTOP = "Desktop";
-    String PROJECT_NAME = "AI_ACH2016_ANN";
-
     String RESOURCES_FOLDER_NAME = "resources";
 
     String INPUT_FOLDER_NAME = "Inputs";
@@ -23,5 +12,5 @@ public interface FileURIComponents {
 
     String ERROR_LOG_NAME = "Error_logs";
 
-    String PROJECT_ROOT_FOLDER = C_DIR + "\\" + USERS + "\\" + PROFILE_USER + "\\" + DESKTOP + "\\"+ PROJECT_NAME + "\\" + RESOURCES_FOLDER_NAME;
+    String PROJECT_ROOT_FOLDER = RESOURCES_FOLDER_NAME;
 }
