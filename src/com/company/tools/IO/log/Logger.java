@@ -30,8 +30,9 @@ public class Logger {
                         neuralNetwork.getFileReference(),
                         neuralNetwork.getInputLayerNeuronNumber(),
                         neuralNetwork.getOutputLayerNeuronNumber());
+
         new OutputPrinter("Initial_Weights", FileURIComponents.CSV_EXT)
-                .printWeights(neuralNetwork.getHiddenWeightMatrix(), neuralNetwork.getOutputWeightMatrix());
+                .printWeights(neuralNetwork.getCurrentEpoch(), neuralNetwork.getHiddenWeightMatrix(), neuralNetwork.getOutputWeightMatrix());
     }
 
     public void logIteration(ANN neuralNetwork) {
@@ -40,13 +41,24 @@ public class Logger {
                                 neuralNetwork.getInputXVector(),
                         neuralNetwork.getExpectedYvector(),
                         neuralNetwork.getObtainedYVector(),
-                        neuralNetwork.getHiddenZVector(),
-                        neuralNetwork.getHiddenWeightMatrix(),
-                        neuralNetwork.getOutputWeightMatrix(),
-                        neuralNetwork.getHiddenErrorInformation(),
-                        neuralNetwork.getHiddenCorrectionTerm(),
-                        neuralNetwork.getOutputErrorInformation(),
-                        neuralNetwork.getOutputCorrectionTerm());
+                        neuralNetwork.getHiddenZVector());
+
+        new OutputPrinter("Error_by_epoch", FileURIComponents.CSV_EXT)
+                .printErrorInfos(neuralNetwork.getCurrentEpoch(),
+                neuralNetwork.getHiddenErrorInformation(),
+                neuralNetwork.getHiddenCorrectionTerm(),
+                neuralNetwork.getOutputErrorInformation(),
+                neuralNetwork.getOutputCorrectionTerm());
+
+        new OutputPrinter("weights", FileURIComponents.CSV_EXT)
+                .printWeights(neuralNetwork.getCurrentEpoch(),
+                neuralNetwork.getHiddenWeightMatrix(),
+                neuralNetwork.getOutputWeightMatrix());
+    }
+
+    public void logResults(ANN neuralNetwork) {
+        new OutputPrinter("results", FileURIComponents.CSV_EXT)
+                .printWeights(neuralNetwork.getCurrentEpoch(), neuralNetwork.getOutputWeightMatrix(), neuralNetwork.getHiddenWeightMatrix());
     }
 
     public void logException(Exception e) {

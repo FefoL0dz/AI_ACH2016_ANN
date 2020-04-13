@@ -107,7 +107,13 @@ public class ANN {
         } catch(Exception e) {
             GlobalExceptionHandler.handle(e);
              System.exit(ExitStatus.FINISHED_WITH_ERROR);
+        } finally {
+            logResults();
         }
+    }
+
+    private void logResults() {
+        Logger.getInstance().logResults(this);
     }
 
     private void logMLPInitialInfos() {

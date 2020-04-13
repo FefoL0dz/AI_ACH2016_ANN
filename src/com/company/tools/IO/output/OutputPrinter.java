@@ -34,7 +34,7 @@ public class OutputPrinter extends BaseIOHandler {
         FolderUtils.createFolder(this.path);
     }
 
-    public void printIteration(int currentEpoch, Double[] inputXVector, Double[] expectedYvector, Double[] obtainedYVector, Double[] hiddenZVector, Double[][] hiddenWeightMatrix, Double[][] outputWeightMatrix, Double[] hiddenErrorInformation, Double[][] hiddenCorrectionTerm, Double[] outputErrorInformation, Double[][] outputCorrectionTerm) {
+    public void printIteration(int currentEpoch, Double[] inputXVector, Double[] expectedYvector, Double[] obtainedYVector, Double[] hiddenZVector) {
 
     }
 
@@ -81,7 +81,7 @@ public class OutputPrinter extends BaseIOHandler {
         }
     }
 
-    public void printWeights(Double[][] hiddenWeightMatrix, Double[][] outputWeightMatrix) {
+    public void printWeights(int currentEpoch, Double[][] hiddenWeightMatrix, Double[][] outputWeightMatrix) {
 
     }
 
@@ -100,5 +100,8 @@ public class OutputPrinter extends BaseIOHandler {
         } catch (IOException e) {
             throw new UnableToWriteFileException(e.getMessage());
         }
+    }
+
+    public void printErrorInfos(int currentEpoch, Double[] hiddenErrorInformation, Double[][] hiddenCorrectionTerm, Double[] outputErrorInformation, Double[][] outputCorrectionTerm) {
     }
 }

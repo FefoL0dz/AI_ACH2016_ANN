@@ -3,14 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e4446b4f-cf2e-41c2-b099-dca7f48763dd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ACH2016/com/company/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/IO/BaseIOHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/IO/BaseIOHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/IO/input/InputReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/IO/input/InputReader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/IO/log/Logger.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/IO/log/Logger.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/IO/output/OutputPrinter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/IO/output/OutputPrinter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/tools/IO/BaseIOHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tools/IO/BaseIOHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/tools/IO/input/InputReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tools/IO/input/InputReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/tools/IO/log/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tools/IO/log/Logger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/tools/IO/output/OutputPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tools/IO/output/OutputPrinter.java" afterDir="false" />
     </list>
@@ -217,7 +210,7 @@
       <breakpoints>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java</url>
-          <line>179</line>
+          <line>185</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
@@ -227,7 +220,7 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java</url>
-          <line>142</line>
+          <line>148</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
@@ -237,7 +230,7 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java</url>
-          <line>147</line>
+          <line>153</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
