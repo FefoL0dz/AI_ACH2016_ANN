@@ -1,5 +1,7 @@
 package com.company.tools.IO;
 
+import com.company.utils.io.FolderUtils;
+
 /**
  * Created by: Felipe Lodes in 08/04/2020.
  * Discipline: ACH2016 - "Inteligência Artificial"
@@ -11,12 +13,9 @@ package com.company.tools.IO;
 public abstract class BaseIOHandler {
 
     protected String path = "";
-    
-    protected String fileExtension = "";
 
     public BaseIOHandler(String path, String fileExtension) {
-        this.path = FileURIComponents.PROJECT_ROOT_FOLDER + "\\"+ path;
-        this.fileExtension = fileExtension;
+        this.path = FileURIComponents.PROJECT_ROOT_FOLDER + "\\"+ path + fileExtension;
     }
 
     public BaseIOHandler(String path) {

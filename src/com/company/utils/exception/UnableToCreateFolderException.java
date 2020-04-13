@@ -16,5 +16,9 @@ public class UnableToCreateFolderException  extends RuntimeException {
     public UnableToCreateFolderException() {
         super(message);
     }
+
+    public UnableToCreateFolderException(String path) {
+        super(message + path);
+    }
 }
 

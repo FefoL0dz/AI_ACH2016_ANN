@@ -2,7 +2,10 @@ package com.company;
 
 import com.company.multiLayerPerceptron.ANN;
 import com.company.multiLayerPerceptron.di.DependencyInjector;
+import com.company.tools.IO.Printer;
+import com.company.tools.IO.input.InputReader;
 import com.company.tools.math.Sigmoid;
+import com.company.utils.doubleConverter.DoubleConverter;
 
 /**
   Created by: Felipe Lodes in 07/04/2020.
@@ -24,26 +27,59 @@ public class Main {
     public static void main(String[] args) {
 
         String functionTag = Sigmoid.TAG;
-        double learningRate = 0.66;
-        int epochNumber = 30000;
-        int hiddenLayerSize = 3;
-        String fileDependency = "problemAND.csv";
+        double learningRate = 0.6;
+        int epochNumber = 100;
+        int hiddenLayerSize = 9;
+
+        String fileDependency = "caracteres-limpo.csv";
+        String testFile = "caracteres-limpo.csv";
 
         ANN mlp = getInstance().train(learningRate, epochNumber, functionTag, hiddenLayerSize, fileDependency);
-        runTests(mlp);
-        ANN mlp1 = getInstance().train(learningRate, epochNumber, functionTag, hiddenLayerSize);
-        runTests(mlp1);
+        run(mlp, testFile);
+    }
+
+    private static void run(ANN mlp, final String testFile) {
+        Double[][] input = DoubleConverter.doubleFromLists(new InputReader(testFile).readInput());
+        Double[][] output = DoubleConverter.doubleFromLists(new InputReader(testFile).readOutput());
+        for (int i = 0; i < input.length; i++) {
+            Double[] result = mlp.predict(input[i]);
+            Printer.print("Wanted result: ");
+            Printer.printCharOutput(output[i % output.length]);
+            //Printer.printOutput(output[i % output.length], 0.5);
+            Printer.print("Obtained result:");
+            Printer.printCharOutput(result);
+            //Printer.printOutput(result, 0.5);
+            Printer.println("--------------------------------------------------");
+        }
+    }
+
+    private static void runTests(ANN mlp, final String fileTest) {
+        //double threshold = 0.5;
+        Double[][] test = DoubleConverter.doubleFromLists(new InputReader(fileTest).readInput());
+        for (int i = 0; i < test.length; i++) {
+            Double[] output = mlp.predict(test[i]);
+           // Printer.printVector(output);
+            Printer.printCharOutput(output);
+        }
+        System.out.println("---------------------------------------------------------------------------");
     }
 
     private static void runTests(ANN mlp) {
-        Double[] test1 = {1.0, -1.0, -1.0};
-        Double[] test2 = {1.0, 1.0, -1.0};
-        Double[] test3 = {1.0, -1.0, 1.0};
-        Double[] test4 = {1.0, 1.0, 1.0};
-        System.out.println(mlp.predict(test1));
-        System.out.println(mlp.predict(test2));
-        System.out.println(mlp.predict(test3));
-        System.out.println(mlp.predict(test4));
+        //Boolean Table (1)
+        Double[] test1 = {1.0, -1.0};
+        Double[] test2 = {1.0, 1.0};
+
+//        //Boolean Table (2)
+//        Double[] test1 = {1.0, -1.0, -1.0};
+//        Double[] test2 = {1.0, 1.0, -1.0};
+//        Double[] test3 = {1.0, -1.0, 1.0};
+//        Double[] test4 = {1.0, 1.0, 1.0};
+
+        double threshold = 0.5;
+        Printer.printOutput(mlp.predict(test1), threshold);
+        Printer.printOutput(mlp.predict(test2), threshold);
+       // Printer.printOutput(mlp.predict(test3), threshold);
+       // Printer.printOutput(mlp.predict(test4), threshold);
         System.out.println("---------------------------------------------------------------------------");
     }
 
@@ -54,7 +90,7 @@ public class Main {
         return neuralNetwork;
     }
 
-    public ANN train(double learningRate, int epochNumber, String functionTag, int hiddenLayerSize) {
+    public ANN trainWithHardCodedDataSet(double learningRate, int epochNumber, String functionTag, int hiddenLayerSize) {
         double[][] inputs = {{1,-1,-1},{1,-1,1},{1,1,-1},{1,1,1}};
         double[][] outputs = {{0},{0},{0},{1}};
         neuralNetwork = DependencyInjector

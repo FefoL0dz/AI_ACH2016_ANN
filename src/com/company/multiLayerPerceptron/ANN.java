@@ -2,7 +2,6 @@ package com.company.multiLayerPerceptron;
 
 import com.company.tools.IO.log.Logger;
 import com.company.tools.generator.IntGenerator;
-import com.company.tools.graph.Plotter;
 import com.company.tools.math.IFunction;
 import com.company.utils.doubleConverter.DoubleConverter;
 import com.company.utils.exception.ExitStatus;
@@ -18,6 +17,9 @@ import com.company.utils.exception.GlobalExceptionHandler;
  **/
 
 public class ANN {
+
+    private String fileReference = "";
+    private String functionTag = "";
 
     private int inputLayerNeuronNumber;
     private int outputLayerNeuronNumber;
@@ -94,27 +96,34 @@ public class ANN {
         this.hiddenZVector[0] = bias;
     }
 
-    public void updateCurrentEpoch() {
+    private void updateCurrentEpoch() {
         this.currentEpoch++;
     }
 
     public void train() {
-        int executionFinishStatus = ExitStatus.FINISHED_SUCCESSFULLY;
         try {
+            logMLPInitialInfos();
             startTraining();
         } catch(Exception e) {
-            executionFinishStatus = ExitStatus.FINISHED_WITH_ERROR;
-            GlobalExceptionHandler.handle(this, e);
-        } finally {
-            finishExecution();
-           // System.exit(executionFinishStatus);
+            GlobalExceptionHandler.handle(e);
+             System.exit(ExitStatus.FINISHED_WITH_ERROR);
         }
     }
 
-    public Double predict(Double[] input) {
+    private void logMLPInitialInfos() {
+        Logger.getInstance().logNeuralNetworkInfo(this);
+    }
+
+    public Double[] predict(Double[] input) {
         this.inputXVector = input;
         feedForward();
-        return this.obtainedYVector[0];
+        return this.obtainedYVector;
+    }
+
+    public Double predictOneOutputNeuron(Double[] input) {
+        this.inputXVector = input;
+        feedForward();
+        return this.obtainedYVector[0] > 0.5 ? 1.0 : 0.0;
     }
 
     private void startTraining() {
@@ -124,7 +133,7 @@ public class ANN {
             updateWeightMatrices();
             updateCurrentEpoch();
             changeTrainingData();
-            //logIteration();
+            logIteration();
         }
     }
 
@@ -136,7 +145,7 @@ public class ANN {
 
     private void setNewTrainingInstance(int index) {
         this.inputXVector = inputDataSet[index];
-        this.expectedYvector = outputDataSet[index];
+        this.expectedYvector = outputDataSet[index % outputDataSet.length];
     }
 
     private void updateWeightMatrices() {
@@ -238,17 +247,104 @@ public class ANN {
     }
 
     private boolean isStagnant() {
-        //TODO: Must t be implemented
-        //throw new NotYetImplementedException();
+        //TODO: Must be implemented - should put a threshold in error counter
         return false;
     }
 
-    private void logIteration() {
-        Logger.getInstance().logNeuralNetworkInfo(this);
-        Plotter.getInstance().plot(this);
+    public int getInputLayerNeuronNumber() {
+        return inputLayerNeuronNumber;
     }
 
-    private void finishExecution() {
-        //throw new NotYetImplementedException();
+    public int getOutputLayerNeuronNumber() {
+        return outputLayerNeuronNumber;
+    }
+
+    public int getHiddenLayerNeuronNumber() {
+        return hiddenLayerNeuronNumber;
+    }
+
+    public double getLearningRate() {
+        return learningRate;
+    }
+
+    public int getEpochMaxNumber() {
+        return epochMaxNumber;
+    }
+
+    public int getCurrentEpoch() {
+        return currentEpoch;
+    }
+
+    public Double[][] getHiddenWeightMatrix() {
+        return hiddenWeightMatrix;
+    }
+
+    public Double[][] getOutputWeightMatrix() {
+        return outputWeightMatrix;
+    }
+
+    public Double[][] getOutputCorrectionTerm() {
+        return outputCorrectionTerm;
+    }
+
+    public Double[][] getHiddenCorrectionTerm() {
+        return hiddenCorrectionTerm;
+    }
+
+    public IFunction<Double, Double> getActivationFunction() {
+        return activationFunction;
+    }
+
+    public Double[][] getInputDataSet() {
+        return inputDataSet;
+    }
+
+    public Double[][] getOutputDataSet() {
+        return outputDataSet;
+    }
+
+    public Double[] getInputXVector() {
+        return inputXVector;
+    }
+
+    public Double[] getExpectedYvector() {
+        return expectedYvector;
+    }
+
+    public Double[] getObtainedYVector() {
+        return obtainedYVector;
+    }
+
+    public Double[] getHiddenZVector() {
+        return hiddenZVector;
+    }
+
+    public Double[] getHiddenErrorInformation() {
+        return hiddenErrorInformation;
+    }
+
+    public Double[] getOutputErrorInformation() {
+        return outputErrorInformation;
+    }
+
+    private void logIteration() {
+        Logger.getInstance().logIteration(this);
+        //Plotter.getInstance().plot(this);
+    }
+
+    public void setFunctionTag(String function) {
+        this.functionTag = function;
+    }
+
+    public void setFileNameReference(String fileName) {
+        this.fileReference = fileName;
+    }
+
+    public String getFunctionTag() {
+        return functionTag;
+    }
+
+    public String getFileReference() {
+        return fileReference;
     }
 }
