@@ -55,7 +55,9 @@ public class DependencyInjector {
                 inputs,
                 outputs,
                 hiddenWeightMatrix,
-                outputWeightMatrix);
+                outputWeightMatrix)
+                .withFunctionTag(functionTag)
+                .withFileNameReference(fileDependency);
     }
 
     public DependencyInjector(double learningRate, int epochNumber, String functionTag, int hiddenLayerSize, double[][] inputs, double[][] outputs) {
@@ -78,7 +80,7 @@ public class DependencyInjector {
                 outputWeightMatrix);
     }
 
-    private void constructBuilder(int inputLayerNeuronNumber,
+    private DependencyInjector.Builder constructBuilder(int inputLayerNeuronNumber,
                                   int outputLayerNeuronNumber,
                                   int hiddenLayerNeuronNumber,
                                   double learningRate,
@@ -99,6 +101,7 @@ public class DependencyInjector {
                 .withExpectedYVector(expectedYVectors)
                 .withHiddenWeightMatrix(hiddenWeightMatrix)
                 .withOutputWeightMatrix(outputWeightMatrix);
+        return builder;
     }
 
     public ANN inject() {
@@ -136,6 +139,9 @@ public class DependencyInjector {
 
         private Double inputXVector[][];
         private Double expectedYVectors[][];
+
+        private String fileName;
+        private String functionTag;
 
         public Builder withInputLayerNeuronNumber(int inputLayerNeuronNumber) {
             this.inputLayerNeuronNumber = inputLayerNeuronNumber;
@@ -187,8 +193,18 @@ public class DependencyInjector {
             return this;
         }
 
+        public Builder withFileNameReference(String fileName) {
+            this.fileName = fileName;
+            return this;
+        }
+
+        public Builder withFunctionTag(String function) {
+            this.functionTag = function;
+            return this;
+        }
+
         public ANN build() {
-            return new ANN(inputLayerNeuronNumber,
+            ANN mlp = new ANN(inputLayerNeuronNumber,
                     outputLayerNeuronNumber,
                     hiddenLayerNeuronNumber,
                     learningRate,
@@ -198,6 +214,11 @@ public class DependencyInjector {
                     expectedYVectors,
                     hiddenWeightMatrix,
                     outputWeightMatrix);
+            if (!StringUtils.isNullOrEmpty(this.fileName))
+                mlp.setFileNameReference(this.fileName);
+            if (!StringUtils.isNullOrEmpty(this.functionTag))
+                mlp.setFunctionTag(functionTag);
+            return mlp;
         }
     }
 }

@@ -22,7 +22,8 @@ public class GlobalExceptionHandler {
 
     public static void handle(ANN neuralNetwork, Exception error) {
         GlobalExceptionHandler handler = new GlobalExceptionHandler();
-        handler.logger.logNeuralNetworkInfo(neuralNetwork);
-        handler.logger.logException(error);
+//        handler.logger.logNeuralNetworkInfo(neuralNetwork);
+//        handler.logger.logException(error);
+        throw new UnknownRuntimeException(error.getLocalizedMessage());
     }
 }

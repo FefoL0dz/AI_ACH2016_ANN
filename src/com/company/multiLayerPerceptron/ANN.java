@@ -1,6 +1,7 @@
 package com.company.multiLayerPerceptron;
 
 import com.company.tools.IO.log.Logger;
+import com.company.tools.IO.output.OutputPrinter;
 import com.company.tools.generator.IntGenerator;
 import com.company.tools.graph.Plotter;
 import com.company.tools.math.IFunction;
@@ -18,6 +19,9 @@ import com.company.utils.exception.GlobalExceptionHandler;
  **/
 
 public class ANN {
+
+    private String fileReference = "";
+    private String functionTag = "";
 
     private int inputLayerNeuronNumber;
     private int outputLayerNeuronNumber;
@@ -102,6 +106,7 @@ public class ANN {
 
     public void train() {
         int executionFinishStatus = ExitStatus.FINISHED_SUCCESSFULLY;
+        initialLog();
         try {
             startTraining();
         } catch(Exception e) {
@@ -109,6 +114,10 @@ public class ANN {
             GlobalExceptionHandler.handle(this, e);
              System.exit(executionFinishStatus);
         }
+    }
+
+    private void initialLog() {
+        new OutputPrinter().printMLPInitialInformation(this.functionTag, this.learningRate, this.epochMaxNumber, this.hiddenLayerNeuronNumber, this.fileReference, this.inputLayerNeuronNumber, this.outputLayerNeuronNumber);
     }
 
     public Double[] predict(Double[] input) {
@@ -133,7 +142,7 @@ public class ANN {
             updateWeightMatrices();
             updateCurrentEpoch();
             changeTrainingData();
-            logIteration();
+            //logIteration();
         }
     }
 
@@ -334,5 +343,13 @@ public class ANN {
     private void logIteration() {
         Logger.getInstance().logNeuralNetworkInfo(this);
         Plotter.getInstance().plot(this);
+    }
+
+    public void setFunctionTag(String function) {
+        this.functionTag = function;
+    }
+
+    public void setFileNameReference(String fileName) {
+        this.fileReference = fileName;
     }
 }

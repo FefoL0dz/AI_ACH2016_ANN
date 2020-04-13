@@ -33,7 +33,7 @@ public class OutputPrinter extends BaseIOHandler {
         super(FileURIComponents.OUTPUT_FOLDER_NAME);
     }
 
-    public void printMLPInitialInformation(String function, double learningRate, int epochNumber, int hiddenLayerSize, int inputLayerSize, int outputLayerSize, String inputFile) {
+    public void printMLPInitialInformation(String function, double learningRate, int epochNumber, int hiddenLayerSize, String inputFile, int inputLayerSize, int outputLayerSize) {
         String fileName = path + "\\" + initialInformationFileName + FileURIComponents.TXT_EXT;
 
         try {
@@ -49,12 +49,12 @@ public class OutputPrinter extends BaseIOHandler {
             writer.append(String.valueOf(inputLayerSize));
             writer.append('\n');
 
-            writer.append("Number of Neurons in Hidden Layer (with bias): ");
-            writer.append(String.valueOf(hiddenLayerSize));
-            writer.append('\n');
-
             writer.append("Number of Neurons in Output Layer: ");
             writer.append(String.valueOf(outputLayerSize));
+            writer.append('\n');
+
+            writer.append("Number of Neurons in Hidden Layer (with bias): ");
+            writer.append(String.valueOf(hiddenLayerSize));
             writer.append('\n');
 
             writer.append("Max Epochs: ");
@@ -68,6 +68,22 @@ public class OutputPrinter extends BaseIOHandler {
             writer.append("Function: ");
             writer.append(function);
             writer.append('\n');
+
+            writer.flush();
+            writer.close();
+
+        } catch (IOException e) {
+            throw new UnableToWriteFileException(e.getMessage());
+        }
+    }
+
+    public void printMLPInitialInformation() {
+        String fileName = path + "\\" + initialInformationFileName + FileURIComponents.TXT_EXT;
+
+        try {
+            FileWriter writer = new FileWriter(fileName);
+
+
 
             writer.flush();
             writer.close();

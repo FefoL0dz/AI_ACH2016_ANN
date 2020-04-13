@@ -2,18 +2,48 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4446b4f-cf2e-41c2-b099-dca7f48763dd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/company/tools/IO/output/MainOutputTester.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/utils/exception/UnableToWriteFileException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/utils/exception/UnknownRuntimeException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ACH2016/com/company/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/multiLayerPerceptron/ANN.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ACH2016/com/company/multiLayerPerceptron/ANN.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/IO/FolderCreator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/IO/input/InputReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/IO/input/InputReader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/IO/output/OutputPrinter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/IO/output/OutputPrinter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/META-INF/ACH2016.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/multiLayerPerceptron/ANN.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/multiLayerPerceptron/di/DependencyInjector$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/multiLayerPerceptron/di/DependencyInjector.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/IO/BaseIOHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/IO/FileURIComponents.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/IO/Printer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/IO/input/InputReader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/IO/input/MainInputTester.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/IO/log/Logger.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/IO/output/MainOutputTester.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/IO/output/OutputPrinter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/generator/IRandomGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/generator/IntGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/generator/MatrixGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/generator/VectorGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/graph/MainPlotterTester.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/graph/Plotter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/math/IFunction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/math/Sigmoid.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/math/Tanh.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/tools/math/test/MainFunctionTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/utils/doubleConverter/DoubleConverter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/utils/exception/ExitStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/utils/exception/GlobalExceptionHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/utils/exception/NotYetImplementedException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/utils/exception/UnableToCreateFolderException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/utils/exception/UnableToReadFileException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/utils/exception/UnableToWriteFileException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/utils/io/FolderUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ACH2016/com/company/utils/string/StringUtils.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/tools/IO/BaseIOHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tools/IO/BaseIOHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/di/DependencyInjector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/di/DependencyInjector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/tools/IO/FileURIComponents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tools/IO/FileURIComponents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/tools/IO/output/MainOutputTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tools/IO/output/MainOutputTester.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/tools/IO/output/OutputPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tools/IO/output/OutputPrinter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/utils/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/utils/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/utils/io/FolderUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/utils/io/FolderUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +85,7 @@
       <recent name="C:\Users\Felipe Lodes\Desktop\AI_ACH2016_ANN\src\com\company\utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainOutputTester">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.company.Main" />
       <module name="ACH2016" />
@@ -120,8 +150,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MainOutputTester" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.MainOutputTester" />
         <item itemvalue="Application.MainInputTester" />
         <item itemvalue="Application.MainPlotterTester" />
         <item itemvalue="Application.MainFunctionTest" />
@@ -156,81 +186,85 @@
     </state>
     <state x="458" y="126" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1586650206255" />
     <state x="488" y="155" width="424" height="482" key="FileChooserDialogImpl/45.27.1321.741@45.27.1321.741" timestamp="1586226792760" />
-    <state width="1323" height="116" key="GridCell.Tab.0.bottom" timestamp="1586738972645">
+    <state width="1323" height="178" key="GridCell.Tab.0.bottom" timestamp="1586742328832">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="116" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586738972645" />
-    <state width="1323" height="116" key="GridCell.Tab.0.center" timestamp="1586738972645">
+    <state width="1323" height="178" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586742328832" />
+    <state width="1323" height="178" key="GridCell.Tab.0.center" timestamp="1586742328831">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="116" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586738972645" />
-    <state width="1323" height="116" key="GridCell.Tab.0.left" timestamp="1586738972645">
+    <state width="1323" height="178" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586742328831" />
+    <state width="1323" height="178" key="GridCell.Tab.0.left" timestamp="1586742328831">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="116" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586738972645" />
-    <state width="1323" height="116" key="GridCell.Tab.0.right" timestamp="1586738972645">
+    <state width="1323" height="178" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586742328831" />
+    <state width="1323" height="178" key="GridCell.Tab.0.right" timestamp="1586742328831">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="116" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586738972645" />
-    <state width="1323" height="116" key="GridCell.Tab.1.bottom" timestamp="1586738972646">
+    <state width="1323" height="178" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586742328831" />
+    <state width="1323" height="116" key="GridCell.Tab.1.bottom" timestamp="1586740303955">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="116" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586738972646" />
-    <state width="1323" height="116" key="GridCell.Tab.1.center" timestamp="1586738972646">
+    <state width="1323" height="116" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586740303955" />
+    <state width="1323" height="116" key="GridCell.Tab.1.center" timestamp="1586740303955">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="116" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1586738972646" />
-    <state width="1323" height="116" key="GridCell.Tab.1.left" timestamp="1586738972646">
+    <state width="1323" height="116" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1586740303955" />
+    <state width="1323" height="116" key="GridCell.Tab.1.left" timestamp="1586740303955">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="116" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1586738972646" />
-    <state width="1323" height="116" key="GridCell.Tab.1.right" timestamp="1586738972646">
+    <state width="1323" height="116" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1586740303955" />
+    <state width="1323" height="116" key="GridCell.Tab.1.right" timestamp="1586740303955">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="116" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1586738972646" />
+    <state width="1323" height="116" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1586740303955" />
     <state x="163" y="0" key="SettingsEditor" timestamp="1586647447611">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1586647447611" />
-    <state x="384" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1586706523766">
+    <state x="384" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1586740454013">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="384" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1586706523766" />
+    <state x="384" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1586740454013" />
     <state x="260" y="100" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1586723862240">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="260" y="100" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1366.728@0.0.1366.728" timestamp="1586723862240" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1586644724117">
+    <state x="380" y="0" width="606" height="728" key="find.popup" timestamp="1586740358977">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1586644724117" />
+    <state x="380" y="0" width="606" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1586740358977" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1586740090274">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1586740090274" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java</url>
-          <line>179</line>
+          <line>188</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java</url>
-          <line>89</line>
+          <line>93</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java</url>
-          <line>142</line>
+          <line>151</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java</url>
-          <line>74</line>
+          <line>78</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java</url>
-          <line>147</line>
+          <line>156</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>

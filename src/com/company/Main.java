@@ -31,8 +31,8 @@ public class Main {
         int epochNumber = 300000;
         int hiddenLayerSize = 9;
 
-        String fileDependency = "caracteres-limpo.csv";
-        String testFile = "caracteres-ruido.csv";
+        String fileDependency = "problemAND.csv";//""caracteres-limpo.csv";
+        String testFile = "problemAND.csv";//"caracteres-ruido.csv";
 
         ANN mlp = getInstance().train(learningRate, epochNumber, functionTag, hiddenLayerSize, fileDependency);
         run(mlp, testFile);
