@@ -19,7 +19,14 @@ import java.io.IOException;
  **/
 
 public class OutputPrinter extends BaseIOHandler {
+
     private final String initialInformationFileName = "MLP_initial_settings";
+
+    private final String initialWeightInformationFileName = "Initial_Weights";
+
+    private final String weightsFileName = "Weights";
+
+    private final String finalWeightInformationFileName = "Final_Weights";
 
     public OutputPrinter(String fileName, String fileExtension) {
         super(FileURIComponents.OUTPUT_FOLDER_NAME + "\\" + fileName, fileExtension);
@@ -27,10 +34,16 @@ public class OutputPrinter extends BaseIOHandler {
 
     public OutputPrinter(String path) {
         super(FileURIComponents.OUTPUT_FOLDER_NAME + "\\" + path);
+        FolderUtils.createFolder(this.path);
     }
 
     public OutputPrinter() {
         super(FileURIComponents.OUTPUT_FOLDER_NAME);
+        FolderUtils.createFolder(this.path);
+    }
+
+    public void printIteration(int currentEpoch, Double[] inputXVector, Double[] expectedYvector, Double[] obtainedYVector, Double[] hiddenZVector, Double[][] hiddenWeightMatrix, Double[][] outputWeightMatrix, Double[] hiddenErrorInformation, Double[][] hiddenCorrectionTerm, Double[] outputErrorInformation, Double[][] outputCorrectionTerm) {
+
     }
 
     public void printMLPInitialInformation(String function, double learningRate, int epochNumber, int hiddenLayerSize, String inputFile, int inputLayerSize, int outputLayerSize) {
@@ -77,13 +90,19 @@ public class OutputPrinter extends BaseIOHandler {
         }
     }
 
-    public void printMLPInitialInformation() {
-        String fileName = path + "\\" + initialInformationFileName + FileURIComponents.TXT_EXT;
+    public void printWeights(Double[][] hiddenWeightMatrix, Double[][] outputWeightMatrix) {
+
+    }
+
+    public void printException(String localizedMessage) {
+        String fileName = path + "\\" + FileURIComponents.ERROR_LOG_NAME + FileURIComponents.TXT_EXT;
 
         try {
             FileWriter writer = new FileWriter(fileName);
 
-
+            writer.append("Error information: ");
+            writer.append("\n");
+            writer.append(localizedMessage);
 
             writer.flush();
             writer.close();

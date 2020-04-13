@@ -28,7 +28,7 @@ public class Main {
 
         String functionTag = Sigmoid.TAG;
         double learningRate = 0.65;
-        int epochNumber = 300000;
+        int epochNumber = 300;
         int hiddenLayerSize = 9;
 
         String fileDependency = "problemAND.csv";//""caracteres-limpo.csv";
@@ -40,8 +40,13 @@ public class Main {
 
     private static void run(ANN mlp, final String testFile) {
         Double[][] input = DoubleConverter.doubleFromLists(new InputReader(testFile).readInput());
+        Double[][] output = DoubleConverter.doubleFromLists(new InputReader(testFile).readOutput());
         for (int i = 0; i < input.length; i++) {
-            Double[] output = mlp.predict(input[i]);
+            Double[] result = mlp.predict(input[i]);
+            Printer.print("Wanted result: ");
+            Printer.printCharOutput(output[i]);
+            Printer.print("Obtained result:");
+            Printer.printCharOutput(result);
         }
     }
 

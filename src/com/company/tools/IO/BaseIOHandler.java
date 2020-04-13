@@ -19,12 +19,10 @@ public abstract class BaseIOHandler {
     public BaseIOHandler(String path, String fileExtension) {
         this.path = FileURIComponents.PROJECT_ROOT_FOLDER + "\\"+ path;
         this.fileExtension = fileExtension;
-        FolderUtils.createFolder(this.path);
     }
 
     public BaseIOHandler(String path) {
         this.path = FileURIComponents.PROJECT_ROOT_FOLDER + "\\"+ path;
-        FolderUtils.createFolder(this.path);
     }
 }
 

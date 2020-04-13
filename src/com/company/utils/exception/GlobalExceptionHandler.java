@@ -20,10 +20,8 @@ public class GlobalExceptionHandler {
         this.logger = Logger.getInstance();
     }
 
-    public static void handle(ANN neuralNetwork, Exception error) {
+    public static void handle(Exception error) {
         GlobalExceptionHandler handler = new GlobalExceptionHandler();
-//        handler.logger.logNeuralNetworkInfo(neuralNetwork);
-//        handler.logger.logException(error);
-        throw new UnknownRuntimeException(error.getLocalizedMessage());
+        handler.logger.logException(error);
     }
 }

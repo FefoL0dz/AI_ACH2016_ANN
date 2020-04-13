@@ -1,9 +1,7 @@
 package com.company.multiLayerPerceptron;
 
 import com.company.tools.IO.log.Logger;
-import com.company.tools.IO.output.OutputPrinter;
 import com.company.tools.generator.IntGenerator;
-import com.company.tools.graph.Plotter;
 import com.company.tools.math.IFunction;
 import com.company.utils.doubleConverter.DoubleConverter;
 import com.company.utils.exception.ExitStatus;
@@ -54,8 +52,6 @@ public class ANN {
 
     private final double bias = 1;
 
-    private boolean isTraining = false;
-
     public ANN(int inputLayerNeuronNumber,
                int outputLayerNeuronNumber,
                int hiddenLayerNeuronNumber,
@@ -105,44 +101,39 @@ public class ANN {
     }
 
     public void train() {
-        int executionFinishStatus = ExitStatus.FINISHED_SUCCESSFULLY;
-        initialLog();
         try {
+            logMLPInitialInfos();
             startTraining();
         } catch(Exception e) {
-            executionFinishStatus = ExitStatus.FINISHED_WITH_ERROR;
-            GlobalExceptionHandler.handle(this, e);
-             System.exit(executionFinishStatus);
+            GlobalExceptionHandler.handle(e);
+             System.exit(ExitStatus.FINISHED_WITH_ERROR);
         }
     }
 
-    private void initialLog() {
-        new OutputPrinter().printMLPInitialInformation(this.functionTag, this.learningRate, this.epochMaxNumber, this.hiddenLayerNeuronNumber, this.fileReference, this.inputLayerNeuronNumber, this.outputLayerNeuronNumber);
+    private void logMLPInitialInfos() {
+        Logger.getInstance().logNeuralNetworkInfo(this);
     }
 
     public Double[] predict(Double[] input) {
-        isTraining = false;
         this.inputXVector = input;
         feedForward();
         return this.obtainedYVector;
     }
 
     public Double predictOneOutputNeuron(Double[] input) {
-        isTraining = false;
         this.inputXVector = input;
         feedForward();
         return this.obtainedYVector[0] > 0.5 ? 1.0 : 0.0;
     }
 
     private void startTraining() {
-        isTraining = true;
         while (!isTerminated()) {
             feedForward();
             backPropagation();
             updateWeightMatrices();
             updateCurrentEpoch();
             changeTrainingData();
-            //logIteration();
+            logIteration();
         }
     }
 
@@ -336,13 +327,9 @@ public class ANN {
         return outputErrorInformation;
     }
 
-    public boolean isTraining() {
-        return isTraining;
-    }
-
     private void logIteration() {
-        Logger.getInstance().logNeuralNetworkInfo(this);
-        Plotter.getInstance().plot(this);
+        Logger.getInstance().logIteration(this);
+        //Plotter.getInstance().plot(this);
     }
 
     public void setFunctionTag(String function) {
@@ -351,5 +338,13 @@ public class ANN {
 
     public void setFileNameReference(String fileName) {
         this.fileReference = fileName;
+    }
+
+    public String getFunctionTag() {
+        return functionTag;
+    }
+
+    public String getFileReference() {
+        return fileReference;
     }
 }
