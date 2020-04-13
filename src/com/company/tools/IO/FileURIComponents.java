@@ -10,7 +10,7 @@ public interface FileURIComponents {
     String USERS = "Users";
 
     //TODO: Improve this process getting project path automatically
-    String PROFILE_USER = "Felipe Lodes";
+    String PROFILE_USER = "(YOUR_USER_HERE)";
 
     String DESKTOP = "Desktop";
     String PROJECT_NAME = "AI_ACH2016_ANN";
