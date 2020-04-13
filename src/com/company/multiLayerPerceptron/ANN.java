@@ -26,7 +26,6 @@ public class ANN {
     private int hiddenLayerNeuronNumber;
 
     private double learningRate;
-    private double errorRate;
     private int epochMaxNumber;
 
     private int currentEpoch;
@@ -66,7 +65,6 @@ public class ANN {
         this.outputLayerNeuronNumber = outputLayerNeuronNumber;
         this.hiddenLayerNeuronNumber = hiddenLayerNeuronNumber;
         this.learningRate = learningRate;
-        this.errorRate = Double.POSITIVE_INFINITY;
         this.epochMaxNumber = epochMaxNumber;
         this.activationFunction = activationFunction;
         this.currentEpoch = 0;
@@ -107,7 +105,13 @@ public class ANN {
         } catch(Exception e) {
             GlobalExceptionHandler.handle(e);
              System.exit(ExitStatus.FINISHED_WITH_ERROR);
+        } finally {
+            logResults();
         }
+    }
+
+    private void logResults() {
+        Logger.getInstance().logResults(this);
     }
 
     private void logMLPInitialInfos() {
@@ -243,12 +247,7 @@ public class ANN {
     }
 
     private boolean isTerminated() {
-        return (currentEpoch >= epochMaxNumber) || isStagnant();
-    }
-
-    private boolean isStagnant() {
-        //TODO: Must be implemented - should put a threshold in error counter
-        return false;
+        return (currentEpoch >= epochMaxNumber);
     }
 
     public int getInputLayerNeuronNumber() {
@@ -289,18 +288,6 @@ public class ANN {
 
     public Double[][] getHiddenCorrectionTerm() {
         return hiddenCorrectionTerm;
-    }
-
-    public IFunction<Double, Double> getActivationFunction() {
-        return activationFunction;
-    }
-
-    public Double[][] getInputDataSet() {
-        return inputDataSet;
-    }
-
-    public Double[][] getOutputDataSet() {
-        return outputDataSet;
     }
 
     public Double[] getInputXVector() {

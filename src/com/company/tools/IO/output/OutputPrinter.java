@@ -20,6 +20,12 @@ import java.io.IOException;
 
 public class OutputPrinter extends BaseIOHandler {
 
+    private final String semicolon = ";";
+
+    private final String comma = ",";
+
+    private final String breakLine = "\n";
+
     public OutputPrinter(String fileName, String fileExtension) {
         super(FileURIComponents.OUTPUT_FOLDER_NAME + "\\" + fileName, fileExtension);
     }
@@ -34,7 +40,7 @@ public class OutputPrinter extends BaseIOHandler {
         FolderUtils.createFolder(this.path);
     }
 
-    public void printIteration(int currentEpoch, Double[] inputXVector, Double[] expectedYvector, Double[] obtainedYVector, Double[] hiddenZVector, Double[][] hiddenWeightMatrix, Double[][] outputWeightMatrix, Double[] hiddenErrorInformation, Double[][] hiddenCorrectionTerm, Double[] outputErrorInformation, Double[][] outputCorrectionTerm) {
+    public void printIteration(int currentEpoch, Double[] inputXVector, Double[] expectedYvector, Double[] obtainedYVector, Double[] hiddenZVector) {
 
     }
 
@@ -81,8 +87,8 @@ public class OutputPrinter extends BaseIOHandler {
         }
     }
 
-    public void printWeights(Double[][] hiddenWeightMatrix, Double[][] outputWeightMatrix) {
-
+    public void printWeights(int currentEpoch, Double[][] hiddenWeightMatrix, Double[][] outputWeightMatrix) {
+        String splitter = comma;
     }
 
     public void printException(String localizedMessage) {
@@ -100,5 +106,8 @@ public class OutputPrinter extends BaseIOHandler {
         } catch (IOException e) {
             throw new UnableToWriteFileException(e.getMessage());
         }
+    }
+
+    public void printErrorInfos(int currentEpoch, Double[] hiddenErrorInformation, Double[][] hiddenCorrectionTerm, Double[] outputErrorInformation, Double[][] outputCorrectionTerm) {
     }
 }
