@@ -20,14 +20,6 @@ import java.io.IOException;
 
 public class OutputPrinter extends BaseIOHandler {
 
-    private final String initialInformationFileName = "MLP_initial_settings";
-
-    private final String initialWeightInformationFileName = "Initial_Weights";
-
-    private final String weightsFileName = "Weights";
-
-    private final String finalWeightInformationFileName = "Final_Weights";
-
     public OutputPrinter(String fileName, String fileExtension) {
         super(FileURIComponents.OUTPUT_FOLDER_NAME + "\\" + fileName, fileExtension);
     }
@@ -47,10 +39,9 @@ public class OutputPrinter extends BaseIOHandler {
     }
 
     public void printMLPInitialInformation(String function, double learningRate, int epochNumber, int hiddenLayerSize, String inputFile, int inputLayerSize, int outputLayerSize) {
-        String fileName = path + "\\" + initialInformationFileName + FileURIComponents.TXT_EXT;
 
         try {
-            FileWriter writer = new FileWriter(fileName);
+            FileWriter writer = new FileWriter(path);
             writer.append("MLP Execution Informations:");
             writer.append('\n');
 
@@ -95,10 +86,9 @@ public class OutputPrinter extends BaseIOHandler {
     }
 
     public void printException(String localizedMessage) {
-        String fileName = path + "\\" + FileURIComponents.ERROR_LOG_NAME + FileURIComponents.TXT_EXT;
 
         try {
-            FileWriter writer = new FileWriter(fileName);
+            FileWriter writer = new FileWriter(path);
 
             writer.append("Error information: ");
             writer.append("\n");

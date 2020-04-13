@@ -13,12 +13,9 @@ import com.company.utils.io.FolderUtils;
 public abstract class BaseIOHandler {
 
     protected String path = "";
-    
-    protected String fileExtension = "";
 
     public BaseIOHandler(String path, String fileExtension) {
-        this.path = FileURIComponents.PROJECT_ROOT_FOLDER + "\\"+ path;
-        this.fileExtension = fileExtension;
+        this.path = FileURIComponents.PROJECT_ROOT_FOLDER + "\\"+ path + fileExtension;
     }
 
     public BaseIOHandler(String path) {

@@ -127,7 +127,7 @@ public class InputReader extends BaseIOHandler {
     private Scanner getScanner() {
         Scanner sc;
         try {
-            sc = new Scanner(new File(path + fileExtension));
+            sc = new Scanner(new File(path));
         } catch (IOException e) {
             throw new UnableToReadFileException("\n"+ e.getMessage());
         } catch (Exception e) {

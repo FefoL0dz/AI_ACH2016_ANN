@@ -21,7 +21,7 @@ public class Logger {
     }
 
     public void logNeuralNetworkInfo(ANN neuralNetwork) {
-        new OutputPrinter()
+        new OutputPrinter("MLP_initial_settings", FileURIComponents.TXT_EXT)
                 .printMLPInitialInformation(
                         neuralNetwork.getFunctionTag(),
                         neuralNetwork.getLearningRate(),
@@ -30,12 +30,12 @@ public class Logger {
                         neuralNetwork.getFileReference(),
                         neuralNetwork.getInputLayerNeuronNumber(),
                         neuralNetwork.getOutputLayerNeuronNumber());
-        new OutputPrinter()
+        new OutputPrinter("Initial_Weights", FileURIComponents.CSV_EXT)
                 .printWeights(neuralNetwork.getHiddenWeightMatrix(), neuralNetwork.getOutputWeightMatrix());
     }
 
     public void logIteration(ANN neuralNetwork) {
-        new OutputPrinter()
+        new OutputPrinter("Iteration_log", FileURIComponents.CSV_EXT)
                 .printIteration(neuralNetwork.getCurrentEpoch(),
                                 neuralNetwork.getInputXVector(),
                         neuralNetwork.getExpectedYvector(),
@@ -50,6 +50,7 @@ public class Logger {
     }
 
     public void logException(Exception e) {
-        new OutputPrinter().printException(e.getLocalizedMessage());
+        new OutputPrinter(FileURIComponents.ERROR_LOG_NAME, FileURIComponents.TXT_EXT)
+                .printException(e.getLocalizedMessage());
     }
 }
