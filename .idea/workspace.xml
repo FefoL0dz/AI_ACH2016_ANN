@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4446b4f-cf2e-41c2-b099-dca7f48763dd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/tools/IO/log/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tools/IO/log/Logger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/tools/IO/output/OutputPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tools/IO/output/OutputPrinter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -148,22 +146,22 @@
     </state>
     <state x="458" y="126" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1586650206255" />
     <state x="488" y="155" width="424" height="482" key="FileChooserDialogImpl/45.27.1321.741@45.27.1321.741" timestamp="1586226792760" />
-    <state width="1323" height="178" key="GridCell.Tab.0.bottom" timestamp="1586749392424">
+    <state width="1319" height="178" key="GridCell.Tab.0.bottom" timestamp="1586751967786">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="178" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586749392424" />
-    <state width="1323" height="178" key="GridCell.Tab.0.center" timestamp="1586749392423">
+    <state width="1319" height="178" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586751967786" />
+    <state width="1319" height="178" key="GridCell.Tab.0.center" timestamp="1586751967786">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="178" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586749392423" />
-    <state width="1323" height="178" key="GridCell.Tab.0.left" timestamp="1586749392423">
+    <state width="1319" height="178" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586751967786" />
+    <state width="1319" height="178" key="GridCell.Tab.0.left" timestamp="1586751967785">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="178" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586749392423" />
-    <state width="1323" height="178" key="GridCell.Tab.0.right" timestamp="1586749392423">
+    <state width="1319" height="178" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586751967785" />
+    <state width="1319" height="178" key="GridCell.Tab.0.right" timestamp="1586751967786">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="178" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586749392423" />
+    <state width="1319" height="178" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586751967786" />
     <state width="1323" height="116" key="GridCell.Tab.1.bottom" timestamp="1586747566035">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -210,27 +208,27 @@
       <breakpoints>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java</url>
-          <line>185</line>
+          <line>183</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java</url>
-          <line>89</line>
+          <line>87</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java</url>
-          <line>148</line>
+          <line>146</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java</url>
-          <line>74</line>
+          <line>72</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/multiLayerPerceptron/ANN.java</url>
-          <line>153</line>
+          <line>151</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>

@@ -20,6 +20,12 @@ import java.io.IOException;
 
 public class OutputPrinter extends BaseIOHandler {
 
+    private final String semicolon = ";";
+
+    private final String comma = ",";
+
+    private final String breakLine = "\n";
+
     public OutputPrinter(String fileName, String fileExtension) {
         super(FileURIComponents.OUTPUT_FOLDER_NAME + "\\" + fileName, fileExtension);
     }
@@ -82,7 +88,7 @@ public class OutputPrinter extends BaseIOHandler {
     }
 
     public void printWeights(int currentEpoch, Double[][] hiddenWeightMatrix, Double[][] outputWeightMatrix) {
-
+        String splitter = comma;
     }
 
     public void printException(String localizedMessage) {
