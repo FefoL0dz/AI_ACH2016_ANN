@@ -27,12 +27,12 @@ public class Main {
     public static void main(String[] args) {
 
         String functionTag = Sigmoid.TAG;
-        double learningRate = 0.6;
-        int epochNumber = 100;
-        int hiddenLayerSize = 9;
+        double learningRate = 0.68;
+        int epochNumber = 10000;
+        int hiddenLayerSize = 4;
 
-        String fileDependency = "caracteres-limpo.csv";
-        String testFile = "caracteres-limpo.csv";
+        String fileDependency = "problemXOR.csv";
+        String testFile = "problemXOR.csv";
 
         ANN mlp = getInstance().train(learningRate, epochNumber, functionTag, hiddenLayerSize, fileDependency);
         run(mlp, testFile);
@@ -44,11 +44,11 @@ public class Main {
         for (int i = 0; i < input.length; i++) {
             Double[] result = mlp.predict(input[i]);
             Printer.print("Wanted result: ");
-            Printer.printCharOutput(output[i % output.length]);
-            //Printer.printOutput(output[i % output.length], 0.5);
+            //Printer.printCharOutput(output[i % output.length]);
+            Printer.printOutput(output[i % output.length], 0.5);
             Printer.print("Obtained result:");
-            Printer.printCharOutput(result);
-            //Printer.printOutput(result, 0.5);
+            //Printer.printCharOutput(result);
+            Printer.printOutput(result, 0.5);
             Printer.println("--------------------------------------------------");
         }
     }

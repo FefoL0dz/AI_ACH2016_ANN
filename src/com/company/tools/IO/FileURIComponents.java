@@ -23,5 +23,5 @@ public interface FileURIComponents {
 
     String ERROR_LOG_NAME = "Error_logs";
 
-    String PROJECT_ROOT_FOLDER = C_DIR + "\\" + USERS + "\\" + PROFILE_USER + "\\" + DESKTOP + "\\"+ PROJECT_NAME + "\\" + RESOURCES_FOLDER_NAME;
+    String PROJECT_ROOT_FOLDER = RESOURCES_FOLDER_NAME;
 }

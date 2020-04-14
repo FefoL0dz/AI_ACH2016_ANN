@@ -2,6 +2,7 @@ package com.company.multiLayerPerceptron;
 
 import com.company.tools.IO.log.Logger;
 import com.company.tools.generator.IntGenerator;
+import com.company.tools.graph.Plotter;
 import com.company.tools.math.IFunction;
 import com.company.utils.doubleConverter.DoubleConverter;
 import com.company.utils.exception.ExitStatus;
@@ -50,6 +51,8 @@ public class ANN {
     private Double outputErrorInformation[];
 
     private final double bias = 1;
+
+    Plotter plotter = new Plotter();
 
     public ANN(int inputLayerNeuronNumber,
                int outputLayerNeuronNumber,
@@ -316,7 +319,7 @@ public class ANN {
 
     private void logIteration() {
         Logger.getInstance().logIteration(this);
-        //Plotter.getInstance().plot(this);
+        plotter.plot(this);
     }
 
     public void setFunctionTag(String function) {

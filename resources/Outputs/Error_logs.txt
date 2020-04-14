@@ -1,0 +1,2 @@
+Error information: 
+Series name >sine< not found!!!
