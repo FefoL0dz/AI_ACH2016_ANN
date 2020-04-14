@@ -65,7 +65,6 @@ public class Main {
         run(mlp, testFile);
     }
 
-
     /*
     Eu implementei o NOT também pra fim de testes
      */
@@ -95,7 +94,6 @@ public class Main {
 //        double learningRate = 0.68;
 //        int epochNumber = 30000;
 //        int hiddenLayerSize = 9;
-
 
         String fileDependency = "caracteres-limpo.csv";
         String testFile = "caracteres-ruido.csv";

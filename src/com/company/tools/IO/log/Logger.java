@@ -3,7 +3,6 @@ package com.company.tools.IO.log;
 import com.company.multiLayerPerceptron.ANN;
 import com.company.tools.IO.FileURIComponents;
 import com.company.tools.IO.output.OutputPrinter;
-import com.company.utils.exception.NotYetImplementedException;
 
 /**
  Created by: Felipe Lodes in 07/04/2020.
