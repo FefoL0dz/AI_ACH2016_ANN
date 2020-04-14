@@ -1,11 +1,11 @@
-package com.company.tools.graph;
+/*package com.company.tools.graph;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
 
-import javax.swing.*;
+import javax.swing.*;*/
 
 /**
  Created by: Felipe Lodes in 11/04/2020.
@@ -16,7 +16,7 @@ import javax.swing.*;
 
  **/
 
-public class MainPlotterTester extends JFrame {
+/*public class MainPlotterTester extends JFrame {
 
     public static void main(String[] args) {
         new MainPlotterTester();
@@ -40,3 +40,4 @@ public class MainPlotterTester extends JFrame {
         setVisible(true);
     }
 }
+*/

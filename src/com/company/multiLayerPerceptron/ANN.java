@@ -316,7 +316,7 @@ public class ANN {
 
     private void logIteration() {
         Logger.getInstance().logIteration(this);
-        //Plotter.getInstance().plot(this);
+        //Plotter.getInstance().logIteration(this);
     }
 
     public void setFunctionTag(String function) {
