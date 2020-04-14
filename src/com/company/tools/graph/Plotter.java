@@ -3,6 +3,7 @@ package com.company.tools.graph;
 import com.company.multiLayerPerceptron.ANN;
 import com.company.tools.IO.BaseIOHandler;
 import com.company.tools.IO.FileURIComponents;
+import com.company.utils.doubleConverter.DoubleConverter;
 
 import javax.swing.*;
 
@@ -69,19 +70,9 @@ public class Plotter extends BaseIOHandler {
             System.out.println(e);
         }
 
-       // this.chart.updateXYSeries("problemXOR.csv", DoubleObjectToDoublePrimitive(neuralNetwork.getInputXVector()), DoubleObjectToDoublePrimitive(neuralNetwork.getInputXVector()), null);
+        //this.chart.updateXYSeries("problemXOR.csv", DoubleConverter.DoubleObjectToDoublePrimitive(neuralNetwork.getInputXVector()), DoubleConverter.DoubleObjectToDoublePrimitive(neuralNetwork.getInputXVector()), null);
         //sw.repaintChart();
         frame.repaint();
-    }
-
-    public double[] DoubleObjectToDoublePrimitive(Double[] array1) {
-        double[] array2 = new double[array1.length];
-
-        for (int i = 0; i < array1.length; i++) {
-            array2[i] = array1[i].doubleValue();
-        }
-
-        return array2;
     }
 
     private void createAndShowGUI() {

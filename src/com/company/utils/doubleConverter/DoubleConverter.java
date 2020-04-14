@@ -56,4 +56,14 @@ public class DoubleConverter {
     public static Double toDouble(double value) {
         return Double.valueOf(value);
     }
+
+    public static double[] DoubleObjectToDoublePrimitive(Double[] array1) {
+        double[] array2 = new double[array1.length];
+
+        for (int i = 0; i < array1.length; i++) {
+            array2[i] = array1[i].doubleValue();
+        }
+
+        return array2;
+    }
 }
