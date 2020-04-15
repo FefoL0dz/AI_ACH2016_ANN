@@ -16,6 +16,24 @@ import com.company.utils.doubleConverter.DoubleConverter;
 
  **/
 
+/**
+ * TODO: Verificar nomes dos integrantes e repositorio onde o código está hospedado:
+ *
+ *  - Repositório Git -
+ *
+ *   TODO: check my git repo: https://github.com/FefoL0dz/AI_ACH2016_ANN - Thanks, Sarajane XD
+ *
+ *  - Integrantes -
+ *
+ * Nome - Nusp
+ *
+ * Felipe Lodes - 9360670
+ * Bryan Munekata - 9911444
+ * Tiago de Luna Farias - 9875503
+ * Guilherme Pereira Mandri - 6519152
+ * Rafael Gensen G Caldeira - 9360687
+ */
+
 public class Main {
 
     ANN neuralNetwork;
@@ -32,13 +50,14 @@ public class Main {
         return new Main();
     }
 
+    //TODO: Descomente os métodos que voce quer testar, cada método contém os nomes dos arquivos de leitura e de teste
     public static void main(String[] args) {
         runXOR();
-        runAND();
-        runOR();
-        runNOT();
-        runCleanCharacters();
-        runNonCleanCharacters();
+//        runAND();
+//        runOR();
+//        runNOT();
+//        runCleanCharacters();
+//        runNonCleanCharacters();
     }
 
     private static void runXOR() {
