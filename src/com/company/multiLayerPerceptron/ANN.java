@@ -18,6 +18,10 @@ import com.company.utils.exception.GlobalExceptionHandler;
 
 public class ANN {
 
+    /**
+     * Eu criei a dependencia do arquivo de leitura dos dados de entrada e da função utilizada, aqui,
+     * apenar para printá-los no logger
+     */
     private String fileReference = "";
     private String functionTag = "";
 
@@ -36,8 +40,19 @@ public class ANN {
     private Double[][] outputCorrectionTerm;
     private Double[][] hiddenCorrectionTerm;
 
+    /**
+     * Função de ativação utilizada
+     */
     IFunction<Double, Double> activationFunction;
 
+    /**
+     * Os atributos inputDataSet e outputDataSet referem-se aos dados de entrada e os resultados esperados.
+     * Servem exclusivamente para o treinamento da rede.
+     *
+     * Diferem-se do inputXVector e do expectedYVector apenas pelo fato de que esses dois são instancias dos dois de cima.
+     * Enquanto os de cima referem-se ao dataset completo de treinamento, os de baixo referem-se a entrada e resultado esperado de
+     * uma unica execução.
+     */
     private Double inputDataSet[][];
     private Double outputDataSet[][];
 
@@ -49,6 +64,9 @@ public class ANN {
     private Double hiddenErrorInformation[];
     private Double outputErrorInformation[];
 
+    /**
+     * Aqui usamos Bias igual a 1 (usamos na camada de entrada e na escondida)
+     */
     private final double bias = 1;
 
     public ANN(int inputLayerNeuronNumber,
@@ -89,6 +107,15 @@ public class ANN {
         setBias();
     }
 
+    /**
+     * Aqui setamos o bias na camada de entrada e na camada escondida.
+     * Quando instaciamos o vetor de entrada e o de camada escondida no injetor de dependencia (Dependency Injector),
+     * Já os instanciamos com o tamanho da entrada somada e o tamanho da camada escondida, passado como parametro, a 1.
+     * Assim, se o número de neurônios na camada escondida é 4 o tamanho real da camada, para fins de execução, é 5.
+     * Essa abordagem trouxe a necessidade de tomar cuidados especificos com as etapas de feedforward,
+     * backpropagation e ajuste de pesos para não considerar pesos que não existiam
+     * (como peso de bias pra bias, por exemplo, que não existe).
+     */
     private void setBias() {
         this.inputXVector[0] = bias;
         this.hiddenZVector[0] = bias;
@@ -98,6 +125,21 @@ public class ANN {
         this.currentEpoch++;
     }
 
+    /**
+     * Aqui iniciamos o treinamento da rede com os parametros recebidos pelo injetor de dependencia (Dependency Injector).
+     * Antes de efetivamente começar o processamento de feedforward geramos log da informações de configuração da rede
+     * em logMLPInitialInfos() - criamos uma classe Logger que recebe a ANN como parametro para gerar os logs especificos
+     * como pesos, erros, informações de configurações e resultados.
+     *
+     * Além disso, criamos a classe GlobalExceptionHandler para lidar com possiveis exceptions que ocorram durante a execução
+     * (o único caso de exceptions que tivemos, foi para ler o csv de entrada, mas resolvemos esse problema criando uma pasta
+     * "resources/input" dentro do projeto e lemos os arquivos de lá)"
+     * Essa classe também gera um arquivo de log de erro. Esperamos que ela não venha a ser executada rsrsrsrs.
+     * Além disso, interrompemos imediatamente a execução caso isso venha acontecer, para que não coletemos resultados errados.
+     *
+     * Ao final do treinamento, logamos os resultados com o método logResults()
+     *
+     */
     public void train() {
         try {
             logMLPInitialInfos();
@@ -118,18 +160,26 @@ public class ANN {
         Logger.getInstance().logNeuralNetworkInfo(this);
     }
 
+    /**
+     * O método abaixo é utilizado para fazer predições após o processo de treinamento da rede,
+     * Ele não é chamado durante a execução do treinamento. Aqui, recebemos a instancia do parametro
+     * de entrada e aplicamos a multiplicação das entradas pelos pesos que o interligam com a camada escondida,
+     * gerando os valores de entrada da camada escondida, que serão multiplicados pelos pesos que interligam
+     * essa ultima com a camada de saida, gerando os valores na camada de saida, que são o resultado final de
+     * predição da rede.
+     */
     public Double[] predict(Double[] input) {
         this.inputXVector = input;
         feedForward();
         return this.obtainedYVector;
     }
 
-    public Double predictOneOutputNeuron(Double[] input) {
-        this.inputXVector = input;
-        feedForward();
-        return this.obtainedYVector[0] > 0.5 ? 1.0 : 0.0;
-    }
-
+    /**
+     * Nesse método o treinamento é efetivamente realizado, enquanto o código
+     * não está terminado (número de épocas atual < número máximo de épocas).
+     * - A primeira parte do código (feedforward) refere-se ao movimento dos dados para frente.
+     *
+     */
     private void startTraining() {
         while (!isTerminated()) {
             feedForward();
