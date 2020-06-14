@@ -7,10 +7,10 @@ import com.company.utils.doubleConverter.DoubleConverter;
 
 import javax.swing.*;
 
-//import org.knowm.xchart.XChartPanel;
-//import org.knowm.xchart.QuickChart;
-//import org.knowm.xchart.SwingWrapper;
-//import org.knowm.xchart.XYChart;
+import org.knowm.xchart.XChartPanel;
+import org.knowm.xchart.QuickChart;
+import org.knowm.xchart.SwingWrapper;
+import org.knowm.xchart.XYChart;
 
 import java.awt.*;
 
@@ -31,12 +31,12 @@ public class Plotter extends BaseIOHandler {
     double[] teste3 = {90, 25};
     double[] teste4 = {15, 78};
 
-    //final XYChart chart = QuickChart.getChart("problemXOR.csv", "X", "Y", "problemXOR.csv", teste1, teste2);
-    //final SwingWrapper<XYChart> sw = new SwingWrapper<XYChart>(chart);
+    final XYChart chart = QuickChart.getChart("problemXOR.csv", "X", "Y", "problemXOR.csv", teste1, teste2);
+    // final SwingWrapper<XYChart> sw = new SwingWrapper<XYChart>(chart);
 
     JFrame frame = new JFrame("problemXOR.csv");
     JLabel epoch = new JLabel("epoch", JLabel.CENTER);
-    //JPanel chartPanel = new XChartPanel(chart);
+    JPanel chartPanel = new XChartPanel(chart);
 
     public Plotter() {
         super(FileURIComponents.GRAPHS_FOLDER_NAME);
@@ -47,7 +47,6 @@ public class Plotter extends BaseIOHandler {
 
                 @Override
                 public void run() {
-
                     createAndShowGUI();
                 }
             }
@@ -65,13 +64,13 @@ public class Plotter extends BaseIOHandler {
         epoch.setText("Epoch: " + Integer.toString(neuralNetwork.getCurrentEpoch()));
 
         try {
-            Thread.sleep(1000);
+            Thread.sleep(100);
         } catch (Exception e) {
             System.out.println(e);
         }
 
-        //this.chart.updateXYSeries("problemXOR.csv", DoubleConverter.DoubleObjectToDoublePrimitive(neuralNetwork.getInputXVector()), DoubleConverter.DoubleObjectToDoublePrimitive(neuralNetwork.getInputXVector()), null);
-        //sw.repaintChart();
+        this.chart.updateXYSeries("problemXOR.csv", DoubleConverter.DoubleObjectToDoublePrimitive(neuralNetwork.getInputXVector()), DoubleConverter.DoubleObjectToDoublePrimitive(neuralNetwork.getInputXVector()), null);
+        // sw.repaintChart();
         frame.repaint();
     }
 
@@ -80,7 +79,7 @@ public class Plotter extends BaseIOHandler {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
 
-       // frame.add(chartPanel);
+        frame.add(chartPanel);
 
         frame.add(epoch, BorderLayout.PAGE_END);
 

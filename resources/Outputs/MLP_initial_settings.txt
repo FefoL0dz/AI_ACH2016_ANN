@@ -1,7 +1,7 @@
 MLP Execution Informations:
-Problem input read from: caracteres-limpo.csv
-Number of Neurons in Input Layer (with bias): 64
-Number of Neurons in Output Layer: 7
+Problem input read from: problemXOR.csv
+Number of Neurons in Input Layer (with bias): 3
+Number of Neurons in Output Layer: 1
 Number of Neurons in Hidden Layer (with bias): 9
 Max Epochs: 30000
 Learning Rate: 0.68
